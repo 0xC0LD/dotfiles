@@ -1,0 +1,37 @@
+#
+# Theme: pro
+# Author: C0LD
+# theme for a black transparent term
+#
+background		= white		default
+frame			= white		default
+window_title		= red	default	bold
+directory		= white		default
+selected_directory	= red		default	bold
+playlist		= white		default
+selected_playlist	= red		default	bold
+file			= white		default
+selected_file		= red		default	bold
+marked_file		= white		red	bold
+marked_selected_file	= white		red	bold,underline
+info			= default	default	bold
+status			= green		default	bold
+title			= red		default	bold
+state			= red		default	bold
+current_time		= green		default	bold
+time_left		= green		default	bold
+total_time		= red		default	bold
+time_total_frames	= red		default	bold
+sound_parameters	= white		default	bold
+legend			= white		default
+disabled		= white		default dim
+enabled			= blue		default	bold
+empty_mixer_bar		= red		default	bold
+filled_mixer_bar	= white		red	bold
+empty_time_bar		= default	default	bold
+filled_time_bar		= default	green
+entry			= white		default
+entry_title		= yellow	default	bold
+error			= red		default	bold
+message			= green		default	bold
+plist_time		= red		default	bold

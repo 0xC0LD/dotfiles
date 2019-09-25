@@ -1,0 +1,45 @@
+# CUSTOM PROMPT
+export PS1="\[$(tput bold)\]\[$(tput setaf 3)\][\[$([ "$EUID" -eq 0 ] && tput setaf 1 || tput setaf 2)\]\u\[$(tput setaf 10)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 3)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+
+# freq
+alias edbashrc="vim ~/.bashrc_custom"
+alias edi3="vim ~/.config/i3/config"
+alias edi3blocks="vim ~/.config/i3/i3blocks.conf"
+
+# alias
+alias e="exit"
+alias q="exit"
+alias l="clear"
+alias b="cd .."
+alias uwu="sudo"
+alias owo="sudo"
+alias pwease="sudo"
+alias please="sudo"
+alias pls="sudo"
+alias plz="sudo"
+alias cls="clear"
+alias pac="sudo pacman --color=auto"
+alias paci="sudo pacman --color=auto -S"
+alias pacs="sudo pacman --color=auto -Ss"
+alias ls="ls -hN --color=auto --group-directories-first"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias pacman="pacman --color=auto"
+
+# CD
+alias bin="cd /home/user/.scripts"
+alias cddx="cd /home/user/Desktop"
+alias cddl="cd /home/user/Downloads"
+alias cdpic="cd /home/user/Pictures"
+alias cddoc="cd /home/user/Documents"
+alias cdmus="cd /home/user/Music"
+alias cdvid="cd /home/user/Videos"
+
+# other
+alias rm="rm -i"
+alias lsf="ls -p | grep -v /"
+alias clip="xclip -selection clipboard"
+alias gfx="lspci -k | grep -EA3 --color 'VGA|3D|Display'"
+alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
+alias yta="yt -x -f bestaudio/best"
+
