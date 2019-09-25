@@ -1,0 +1,2 @@
+#!/bin/bash
+rofi -theme Monokai -modi run,drun -show run -l 10 -font "Inconsolata Nerd Font Medium 20" -width 50 -show-icons

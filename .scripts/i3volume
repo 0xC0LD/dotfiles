@@ -1,0 +1,26 @@
+#!/bin/bash
+
+ICON=""
+VOL1=""
+VOL2=""
+VOL3=""
+VOLM=""
+
+case $BLOCK_BUTTON in
+  1) pavucontrol &>/dev/null & ;;
+  3) pamixer -t ;;  # right click, mute/unmute
+  4) pamixer -i 5 ;; # scroll up, increase
+  5) pamixer -d 5 ;; # scroll down, decrease
+esac
+
+volume="$(pamixer --get-volume)"
+
+if [ "$(pamixer --get-mute)" == "true" ]; then
+	ICON="$VOLM"
+else
+	if   [ $volume -ge 55 ]; then ICON="$VOL3"
+	elif [ $volume -ge 15 ]; then ICON="$VOL2"
+	else ICON="$VOL1" ; fi
+fi
+
+echo -e "$ICON $volume"

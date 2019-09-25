@@ -1,0 +1,7 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+	 1) notify-send -a "WIFI" -t 5000 "$(echo -e "IP(s)....: $(hostname_I)\nGATEWAYS.: $(gateways)")"  ;;
+esac
+
+hostname_I
