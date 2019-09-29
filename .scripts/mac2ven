@@ -1,0 +1,11 @@
+#!/bin/bash
+
+MAC="$1"
+
+until [ ! -z "$MAC" ]; do
+	read -p 'MAC: ' MAC
+done
+
+locate "oui.txt" | while read line ; do
+	cat "$line" | grep -i "$MAC"
+done

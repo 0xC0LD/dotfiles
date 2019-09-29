@@ -1,0 +1,12 @@
+#!/bin/bash
+
+RECV_PORT="$1"
+RECV_FILE="$2"
+
+echo -e "> IP: $(hostname_I)"
+
+while [ -z "$RECV_PORT" ]; do read -p 'PORT: ' RECV_PORT ; done
+while [ -z "$RECV_FILE" ]; do read -p 'FILE: ' RECV_FILE ; done
+
+nc -vv -l -p "$RECV_PORT" > "$RECV_FILE"
+echo ERRORLEVEL: $?

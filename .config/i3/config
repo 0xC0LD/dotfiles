@@ -297,3 +297,4 @@ exec --no-startup-id compton --config /dev/null # enable transparency
 exec --no-startup-id nm-applet                  # enable wifi manager
 exec --no-startup-id dunst -conf ~/.dunstrc     # start notification daemon
 exec --no-startup-id desktop-dimmer             # poor man's f.lux
+

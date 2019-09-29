@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ls *.mp4 | while read mp4file ; do
+	REPLACE="${mp4file/.mp4/.mp3}"
+	echo -e "\"$mp4file\""
+	echo -e "\"$REPLACE\""
+	ffmpeg -nostdin -loglevel panic -i "$mp4file" "$REPLACE"
+done

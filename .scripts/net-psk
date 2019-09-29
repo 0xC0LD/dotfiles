@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo -e -n "" > /tmp/wifipsk.output
+count="0"
+sudo ls -1 /etc/NetworkManager/system-connections | while read line ; do
+	((count++))
+	PASSWORD=$(sudo cat /etc/NetworkManager/system-connections/"$line" | grep "psk=" | awk -F "psk=" {'print $2'})
+	N="\e[33m$count.\e[0m"
+	A="\e[92m$line\e[0m"
+	if [ -z "$PASSWORD" ]; then
+		P="\e[2m\e[31mN/A\e[0m"
+	else
+		P="\e[91m$PASSWORD\e[0m"
+	fi
+	echo -e "$N	$A	$P" >> /tmp/wifipsk.output
+done
+
+column -s "	" -t /tmp/wifipsk.output
+rm /tmp/wifipsk.output

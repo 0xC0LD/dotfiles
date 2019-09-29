@@ -1,0 +1,7 @@
+#!/bin/bash
+
+INPUT="$1"
+
+while [ -z "$INPUT" ]; do read -p "FIND: " INPUT ; done
+
+ps aux | grep --color=auto -i "$INPUT"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DEVICE="wlan0"
+
+sudo tcpdump -vv -i "$DEVICE" icmp and icmp[icmptype]=icmp-echo

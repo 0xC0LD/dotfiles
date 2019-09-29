@@ -1,0 +1,49 @@
+#!/bin/bash
+
+INTERFACE="$1"
+COMMAND="iwlist scan"
+
+if ! [ -z "$INTERFACE" ]; then
+	COMMAND="iwlist $INTERFACE scan" 
+fi
+
+$COMMAND 2>/dev/null | while read line ; do
+
+	DEVICE=""
+	echo "$line" | grep "Scan completed" 2>/dev/null >/dev/null
+	if [ $? -eq 0 ]; then
+		DEVICE=$(echo $line | cut -d' ' -f1)
+	fi
+	MAC=$(echo $line | awk -F "Address: " {'printf $2'} | cut -f1)
+	CHANNEL=$(echo $line | awk -F "Channel:" {'printf $2'} | cut -f1)
+	ENCRYPTION=$(echo $line | awk -F "Encryption key:" {'printf $2'} | cut -f1)
+	ESSID=$(echo $line | awk -F "ESSID:" {'printf $2'} | cut -f1)
+
+	if ! [ -z "$DEVICE" ]; then
+		echo
+		echo -e "$DEVICE:"
+	fi
+
+	if ! [ -z "$MAC" ]; then
+		echo -n "$MAC"
+	fi
+
+	if ! [ -z "$CHANNEL" ]; then
+		echo -n "	"
+		echo -n "$CHANNEL"
+	fi
+
+	if ! [ -z "$ENCRYPTION" ]; then
+		echo -n "	"
+		echo -n "$ENCRYPTION"
+	fi
+
+	if ! [ -z "$ESSID" ]; then
+		echo -n "	"
+		echo -n "$ESSID"
+		echo
+	fi
+done
+
+echo
+echo

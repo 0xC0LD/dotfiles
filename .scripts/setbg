@@ -1,0 +1,5 @@
+#!/bin/bash
+input="$1"
+while [ -z "$input" ]; do read -p "FILE: " input ; done
+feh --recursive --randomize --bg-fill "$input"
+
