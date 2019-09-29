@@ -42,4 +42,4 @@ alias clip="xclip -selection clipboard"
 alias gfx="lspci -k | grep -EA3 --color 'VGA|3D|Display'"
 alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
-
+alias psa="ps aux"
