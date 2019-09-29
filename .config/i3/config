@@ -48,13 +48,18 @@ bindsym XF86Battery     exec gnome-power-statistics
 #bindsym XF86MonBrightnessDown exec --no-startup-id  xbacklight -dec 10
 #XF86Sleep
 
-bindsym $mod+Return     exec i3-sensible-terminal
-bindsym $alt+Return     exec i3-sensible-terminal
-bindsym $mod+b          exec nautilus
-bindsym $alt+b          exec nautilus
-bindsym $mod+r          exec terminator -x ranger
-bindsym $alt+r          exec terminator -x ranger
-bindsym Print           exec flameshot gui
+#bindsym $mod+Return     exec i3-sensible-terminal
+bindsym $mod+Return         exec kitty
+bindsym $mod+Control+Return exec urxvt
+bindsym $alt+Return         exec kitty
+bindsym $alt+Control+Return exec urxvt
+bindsym $mod+b              exec nautilus
+bindsym $alt+b              exec nautilus
+bindsym $mod+r              exec urxvt -e ranger
+bindsym $mod+Control+r      exec kitty ranger
+bindsym $alt+r              exec urxvt -e ranger
+bindsym $alt+Control+r      exec kitty ranger
+bindsym Print               exec flameshot gui
 
 bindsym $mod+e layout stacking
 bindsym $alt+e layout stacking
@@ -286,9 +291,9 @@ bindsym $alt+n exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pict
 exec_always --no-startup-id xrandr --output LVDS1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
 
 # startup
-exec --no-startup-id nm-applet                  # enable wifi manager
-exec --no-startup-id desktop-dimmer             # poor man's f.lux
-exec --no-startup-id compton --config /dev/null # enable transparency
+exec --no-startup-id lxpolkit                   # start lxde polkit for drive mounting
 exec --no-startup-id xsettingsd                 # fix ugly fonts
+exec --no-startup-id compton --config /dev/null # enable transparency
+exec --no-startup-id nm-applet                  # enable wifi manager
 exec --no-startup-id dunst -conf ~/.dunstrc     # start notification daemon
-
+exec --no-startup-id desktop-dimmer             # poor man's f.lux
