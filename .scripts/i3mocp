@@ -1,0 +1,10 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+  1) mocp -f ;;
+  2) mocp -x ;;
+  3) mocp -r ;;
+esac
+
+mocp -Q "%file" | sed "s/.*\///"
+

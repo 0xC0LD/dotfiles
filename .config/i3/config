@@ -12,7 +12,7 @@ set $urgent-bg-color     #ff0000
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #027395
+client.focused          $bg-color           $bg-color          $text-color          #800094
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #000000
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #000000
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #ff0000
@@ -221,7 +221,7 @@ bindsym $alt+Shift+r restart
 # i3blocks
 bar {
 	font pango:Inconsolata Nerd Font Medium 14
-	position top
+	#position top
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf 
 	colors {
 		background $bg-color-statusbar
@@ -247,6 +247,7 @@ bindsym Control+XF86AudioRaiseVolume exec --no-startup-id pamixer -i 1;         
 bindsym XF86AudioLowerVolume         exec --no-startup-id pamixer -d 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
 bindsym Control+XF86AudioLowerVolume exec --no-startup-id pamixer -d 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMicMute             exec --no-startup-id pamixer --source 1 -t;      exec --no-startup-id pkill -RTMIN+11 i3blocks
+bindsym $mod+Shift+m                 exec --no-startup-id pamixer --source 1 -t;      exec --no-startup-id pkill -RTMIN+11 i3blocks
 
 bindsym $mod+period                exec --no-startup-id pamixer -i 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
 bindsym $mod+Control+period        exec --no-startup-id pamixer -i 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
@@ -281,9 +282,9 @@ bindsym $mod+a exec --no-startup-id ~/.scripts/i3keyboard_switch; exec --no-star
 bindsym $alt+a exec --no-startup-id ~/.scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
 
 # background
-exec_always --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/Wallpapers/*
-bindsym $mod+n exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/Wallpapers/*
-bindsym $alt+n exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/Wallpapers/*
+exec_always --no-startup-id setbgutc
+bindsym $mod+n exec --no-startup-id setbgutc
+bindsym $alt+n exec --no-startup-id setbgutc
 #exec_always --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
 #bindsym $mod+n exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
 
@@ -291,9 +292,9 @@ bindsym $alt+n exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pict
 exec_always --no-startup-id xrandr --output LVDS1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
 
 # startup
-exec --no-startup-id lxpolkit                   # start lxde polkit for drive mounting
 exec --no-startup-id xsettingsd                 # fix ugly fonts
 exec --no-startup-id compton --config /dev/null # enable transparency
+exec --no-startup-id lxpolkit                   # start lxde polkit for drive mounting
 exec --no-startup-id nm-applet                  # enable wifi manager
 exec --no-startup-id dunst -conf ~/.dunstrc     # start notification daemon
 exec --no-startup-id desktop-dimmer             # poor man's f.lux

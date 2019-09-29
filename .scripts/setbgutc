@@ -1,8 +1,19 @@
 #!/bin/bash
 
 # set "random" wallpaper depending on date/time
-# night time - dark wallpaper
-# day time   - light wallpaper
-# special day wallpapers (WWI, WWII, 4th of july, ...)
-# season of the year wallpapers (winter, spring, summer, autumn)
+
+bgdir_day="/home/user/Pictures/Wallpapers/Day"
+bgdir_night="/home/user/Pictures/Wallpapers/Night"
+bgdir_dark="/home/user/Pictures/Wallpapers/Dark"
+
+hour="$(date +"%H")"
+
+if [ $hour -ge 20 ]; then
+	feh --recursive --randomize --bg-fill "$bgdir_dark"
+elif [ $hour -ge 16 ]; then
+	feh --recursive --randomize --bg-fill "$bgdir_night"
+else
+	feh --recursive --randomize --bg-fill "$bgdir_day"
+fi
+
 
