@@ -1,10 +1,26 @@
 #!/bin/bash
 
 case $BLOCK_BUTTON in
-  1) mocp -f ;;
+  1) mocp -G ;;
   2) mocp -x ;;
-  3) mocp -r ;;
+  3) notify-send -t 3000 -a "$(mocp -Q "MOCP [%state] [%ct/%tt]")" "$(echo -e $(mocp -Q "%file" | sed "s/.*\///"))" ;;
+  4) mocp -f ;;
+  5) mocp -r ;;
 esac
 
-mocp -Q "%file" | sed "s/.*\///"
+# exit if mocp isn't running
+mocp -Q "%state" >/dev/null 2>/dev/null
+[ $? -ne 0 ] && exit 1
 
+ICON=""
+ICON_PLAY=""
+ICON_PAUSE=""
+
+STATE="$(mocp -Q "%state")"
+[ "$STATE" == "PLAY" ] && ICON="$ICON_PAUSE"
+[ "$STATE" == "PAUSE" ] && ICON="$ICON_PLAY"
+
+echo -ne " "
+echo -ne "$(mocp -Q "%file" | sed "s/.*\///")"
+echo -ne " [$ICON] "
+echo -e "$(mocp -Q "[%ct/%tt]")"

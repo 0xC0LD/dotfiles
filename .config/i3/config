@@ -220,7 +220,7 @@ bindsym $alt+Shift+r restart
 
 # i3blocks
 bar {
-	font pango:Inconsolata Nerd Font Medium 14
+	font pango:Inconsolata Nerd Font Medium 12
 	#position top
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf 
 	colors {
@@ -234,11 +234,11 @@ bar {
 }
 
 # Media player key bindings
-bindsym XF86AudioStop  exec --no-startup-id notify-send "stop"
-bindsym XF86AudioPlay  exec --no-startup-id notify-send "play"
-bindsym XF86AudioPause exec --no-startup-id notify-send "pause"
-bindsym XF86AudioNext  exec --no-startup-id notify-send "next"
-bindsym XF86AudioPrev  exec --no-startup-id notify-send "previous"
+bindsym XF86AudioPlay  exec --no-startup-id mocp -p; exec --no-startup-id notify-send "$(mocp -Q "%file" | sed "s/.*\///")" -a "MOCP: PLAY"
+bindsym XF86AudioPause exec --no-startup-id mocp -P; exec --no-startup-id notify-send "$(mocp -Q "%file" | sed "s/.*\///")" -a "MOCP: PAUSE"
+bindsym XF86AudioStop  exec --no-startup-id mocp -s; exec --no-startup-id notify-send "$(mocp -Q "%file" | sed "s/.*\///")" -a "MOCP: STOP"
+bindsym XF86AudioNext  exec --no-startup-id mocp -f; exec --no-startup-id notify-send "$(mocp -Q "%file" | sed "s/.*\///")" -a "MOCP: NEXT"
+bindsym XF86AudioPrev  exec --no-startup-id mocp -r; exec --no-startup-id notify-send "$(mocp -Q "%file" | sed "s/.*\///")" -a "MOCP: PREVIOUS"
 
 # volume ctrl
 bindsym XF86AudioMute                exec --no-startup-id pamixer -t;                 exec --no-startup-id pkill -RTMIN+10 i3blocks
