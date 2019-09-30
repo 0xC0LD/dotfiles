@@ -11,6 +11,7 @@ esac
 # exit if mocp isn't running
 mocp -Q "%state" >/dev/null 2>/dev/null
 [ $? -ne 0 ] && exit 1
+[ "$(mocp -Q "%state")" == "STOP" ] && exit 1
 
 ICON=""
 ICON_PLAY=""
