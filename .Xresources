@@ -1,9 +1,8 @@
 ! font
 URxvt.font: xft:Inconsolata NF:size=13, xft:Symbola:size=13
-!URxvt.font: xft:Inconsolata NF:size=13
-URxvt.boldFont: xft:Inconsolata NF:style=Bold:size=13
-URxvt.italicFont: xft:Inconsolata NF:style=Italic:size=13
-URxvt.boldItalicFont: xft:Inconsolata NF:style=Bold Italic:size=13
+URxvt.boldFont: xft:Inconsolata NF:style=Bold:size=13, xft:Symbola:style=Bold:size=13
+URxvt.italicFont: xft:Inconsolata NF:style=Italic:size=13, xft:Symbola:style=Italic:size=13
+URxvt.boldItalicFont: xft:Inconsolata NF:style=Bold Italic:size=13, xft:Symbola:style=Bold Italic:size=13
 
 ! resize font
 URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
@@ -60,5 +59,6 @@ urxvt*background: rgba:0000/0000/0200/D6D8
 *.color14: #33c5ba
 
 ! white
-*.color7: #bfbaac
-*.color15: #fdf6e3
+*.color7: #d5d5d5
+*.color15: #ffffff
+
