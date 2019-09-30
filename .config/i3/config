@@ -289,13 +289,13 @@ bindsym $alt+n exec --no-startup-id setbgutc
 #bindsym $mod+n exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
 
 # monitor setup
-exec_always --no-startup-id xrandr --output LVDS1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
+exec_always --no-startup-id ~/.screenlayout/layout.sh
 
 # startup
-exec --no-startup-id xsettingsd                 # fix ugly fonts
-exec --no-startup-id compton --config /dev/null # enable transparency
-exec --no-startup-id lxpolkit                   # start lxde polkit for drive mounting
-exec --no-startup-id nm-applet                  # enable wifi manager
-exec --no-startup-id dunst -conf ~/.dunstrc     # start notification daemon
-exec --no-startup-id desktop-dimmer             # poor man's f.lux
+exec --no-startup-id xsettingsd                                # fix ugly fonts
+exec --no-startup-id compton --config ~/.config/compton/config # enable transparency
+exec --no-startup-id lxpolkit                                  # start lxde polkit for drive mounting
+exec --no-startup-id nm-applet                                 # enable wifi manager
+exec --no-startup-id dunst -conf ~/.config/dunst/config        # start notification daemon
+exec --no-startup-id desktop-dimmer                            # poor man's f.lux
 
