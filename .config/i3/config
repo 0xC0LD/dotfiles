@@ -33,6 +33,10 @@ bindsym $alt+q kill
 bindsym $mod+Shift+q kill
 bindsym $alt+Shift+q kill
 
+# MMB over kills the window
+bindsym --release button2 kill
+bindsym --release $mod+button2 kill
+
 # fn keys
 bindsym XF86ScreenSaver exec ~/.scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
 bindsym $mod+x          exec ~/.scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
@@ -49,16 +53,16 @@ bindsym XF86Battery     exec gnome-power-statistics
 #XF86Sleep
 
 #bindsym $mod+Return     exec i3-sensible-terminal
-bindsym $mod+Return         exec kitty
+bindsym $mod+Return         exec terminator
 bindsym $mod+Control+Return exec urxvt
-bindsym $alt+Return         exec kitty
+bindsym $alt+Return         exec terminator
 bindsym $alt+Control+Return exec urxvt
 bindsym $mod+b              exec nautilus
 bindsym $alt+b              exec nautilus
 bindsym $mod+r              exec urxvt -e ranger
-bindsym $mod+Control+r      exec kitty ranger
+bindsym $mod+Control+r      exec terminator -x ranger
 bindsym $alt+r              exec urxvt -e ranger
-bindsym $alt+Control+r      exec kitty ranger
+bindsym $alt+Control+r      exec terminator -x ranger
 bindsym Print               exec flameshot gui
 
 bindsym $mod+e layout stacking
@@ -73,12 +77,9 @@ bindsym $alt+space       focus mode_toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $alt+Shift+space floating toggle
 
-# MMB over a titlebar kills the window
-bindsym --release button2 kill
-
 # RMB toggles floating
-bindsym button3 floating toggle
-bindsym $mod+button3 floating toggle
+#bindsym button3 floating toggle
+#bindsym $mod+button3 floating toggle
 
 bindsym $mod+h       focus left
 bindsym $mod+Shift+h move left 30

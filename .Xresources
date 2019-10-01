@@ -1,8 +1,9 @@
 ! font
-URxvt.font: xft:Inconsolata NF:size=13, xft:Symbola:size=13
-URxvt.boldFont: xft:Inconsolata NF:style=Bold:size=13, xft:Symbola:style=Bold:size=13
-URxvt.italicFont: xft:Inconsolata NF:style=Italic:size=13, xft:Symbola:style=Italic:size=13
+URxvt.font:           xft:Inconsolata NF:size=13,                   xft:Symbola:size=13
+URxvt.boldFont:       xft:Inconsolata NF:style=Bold:size=13,        xft:Symbola:style=Bold:size=13
+URxvt.italicFont:     xft:Inconsolata NF:style=Italic:size=13,      xft:Symbola:style=Italic:size=13
 URxvt.boldItalicFont: xft:Inconsolata NF:style=Bold Italic:size=13, xft:Symbola:style=Bold Italic:size=13
+URxvt.letterSpace: -1
 
 ! resize font
 URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
@@ -13,14 +14,16 @@ URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.url-select.underline: true
 
-! do not scroll with output
+! scrolling
 URxvt*scrollTtyOutput: false
-
-! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
+URxvt*scrollBar_right: true
+URxvt*scrollColor: #696ebf
+!URxvt*borderColor: #ff0000
+URxvt*troughColor: #000000
 
 ! disable scrollbar
-URxvt.scrollBar: false
+URxvt.scrollBar: true
 
 ! background color
 URxvt*background: black

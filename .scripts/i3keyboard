@@ -6,9 +6,9 @@ esac
 
 keyb="$(xkblayout-state print "%n%v")"
 if [ "$keyb" == "English" ]; then
-	echo -e "[US],РС,RS"
+	echo -e "[US],RS,RSL"
 elif [ "$keyb" == "Serbian" ]; then
-	echo -e "US,[РС],RS"
+	echo -e "US,[RS],RSL"
 elif [ "$keyb" == "Serbianlatin" ]; then
-	echo -e "US,РС,[RS]"
+	echo -e "US,RS,[RSL]"
 fi
