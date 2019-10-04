@@ -5,8 +5,9 @@ get_volume(){
 }
 
 
-echo -e "UP ARROW   = INCREASE VOLUME"
-echo -e "DOWN ARROW = DECREASE VOLUME"
+echo -e "up arrow   = increase volume"
+echo -e "down arrow = decrease volume"
+echo -e "q          = quit"
 
 get_volume
 
