@@ -18,7 +18,7 @@ URxvt.url-select.underline: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollTtyKeypress: true
 URxvt*scrollBar_right: true
-URxvt*scrollColor: #696ebf
+URxvt*scrollColor: #8086e8
 !URxvt*borderColor: #ff0000
 URxvt*troughColor: #000000
 
