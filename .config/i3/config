@@ -78,7 +78,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $alt+Shift+space floating toggle
 
 # RMB toggles floating
-#bindsym button3 floating toggle
+bindsym button3 floating toggle
 #bindsym $mod+button3 floating toggle
 
 bindsym $mod+h       focus left

@@ -1,5 +1,5 @@
 # Opacity
-#inactive-opacity = 0.8;
+inactive-opacity = 0.95;
 #active-opacity = 0.8;
 #frame-opacity = 1;
 #inactive-opacity-override = false;

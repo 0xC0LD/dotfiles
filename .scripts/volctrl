@@ -5,10 +5,9 @@ get_volume(){
 }
 
 
-echo -e "up arrow   = increase volume"
-echo -e "down arrow = decrease volume"
-echo -e "q          = quit"
-
+echo -e "up arrow   = vol +1"
+echo -e "down arrow = vol -1"
+echo -e "q = quit"
 get_volume
 
 while read -sn1 key # 1 char

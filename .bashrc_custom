@@ -32,6 +32,9 @@ alias ls="ls -hN --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias pacman="pacman --color=auto"
+alias vol="pamixer --get-volume"
+alias his="history"
+
 
 # CD
 alias bin="cd /home/user/.scripts"
@@ -47,6 +50,6 @@ alias rm="rm -i"
 alias lsf="ls -p | grep -v /"
 alias clip="xclip -selection clipboard"
 alias gfx="lspci -k | grep -EA3 --color 'VGA|3D|Display'"
-alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
-alias yta="yt -x -f bestaudio/best"
+alias yt="youtube-dl --add-metadata -i -o '%(title)s.%(ext)s'"
+alias yta="yt --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'"
 alias psa="ps aux"
