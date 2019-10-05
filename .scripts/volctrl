@@ -1,13 +1,9 @@
 #!/bin/bash
 
 get_volume(){
-	echo -ne "> $(pamixer --get-volume-human)\r"
+	echo -ne "> $(pamixer --get-volume-human)   \r"
 }
 
-
-echo -e "up arrow   = vol +1"
-echo -e "down arrow = vol -1"
-echo -e "q = quit"
 get_volume
 
 while read -sn1 key # 1 char
