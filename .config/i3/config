@@ -282,15 +282,15 @@ exec_always --no-startup-id setxkbmap -model pc105 -layout us,rs,rs -variant ",,
 bindsym $mod+a exec --no-startup-id ~/.scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
 bindsym $alt+a exec --no-startup-id ~/.scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
 
+# monitor setup
+exec_always --no-startup-id ~/.screenlayout/layout.sh
+
 # background
 exec_always --no-startup-id setbgutc
 bindsym $mod+n exec --no-startup-id setbgutc
 bindsym $alt+n exec --no-startup-id setbgutc
 #exec_always --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
 #bindsym $mod+n exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
-
-# monitor setup
-exec_always --no-startup-id ~/.screenlayout/layout.sh
 
 # startup
 exec --no-startup-id xsettingsd                                # fix ugly fonts
