@@ -11,6 +11,7 @@ alias xu="xrdb ~/.Xresources"
 alias edres="vim ~/.Xresources"
 alias xc="compton -b --config /home/user/.config/compton/config"
 alias mus="cd /run/media/user/HDD/Stuff/media/mp3/Music"
+alias dump="mkdir dump ; cd dump"
 
 # alias
 alias e="exit"
