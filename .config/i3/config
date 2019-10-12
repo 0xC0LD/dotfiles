@@ -285,13 +285,6 @@ bindsym $alt+a exec --no-startup-id ~/.scripts/i3keyboard_switch; exec --no-star
 # monitor setup
 exec_always --no-startup-id ~/.screenlayout/layout.sh
 
-# background
-exec_always --no-startup-id setbgutc
-bindsym $mod+n exec --no-startup-id setbgutc
-bindsym $alt+n exec --no-startup-id setbgutc
-#exec_always --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
-#bindsym $mod+n exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
-
 # startup
 exec --no-startup-id xsettingsd                                # fix ugly fonts
 exec --no-startup-id compton --config ~/.config/compton/config # enable transparency
@@ -299,4 +292,11 @@ exec --no-startup-id lxpolkit                                  # start lxde polk
 exec --no-startup-id nm-applet                                 # enable wifi manager
 exec --no-startup-id dunst -conf ~/.config/dunst/config        # start notification daemon
 exec --no-startup-id desktop-dimmer                            # poor man's f.lux
+
+# background
+exec --no-startup-id setbgutc
+bindsym $mod+n exec --no-startup-id setbgutc
+bindsym $alt+n exec --no-startup-id setbgutc
+#exec_always --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
+#bindsym $mod+n exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
 
