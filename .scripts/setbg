@@ -1,5 +1,12 @@
 #!/bin/bash
 input="$1"
-while [ -z "$input" ]; do read -p "FILE: " input ; done
+image="$HOME/.wallpaper"
+
+if [ -z "$input" ]; then
+	input="$image"
+else
+	ln -sfr "$input" "$image"
+fi
+
 feh --recursive --randomize --bg-fill "$input"
 

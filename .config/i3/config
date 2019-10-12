@@ -293,10 +293,8 @@ exec --no-startup-id nm-applet                                 # enable wifi man
 exec --no-startup-id dunst -conf ~/.config/dunst/config        # start notification daemon
 exec --no-startup-id desktop-dimmer                            # poor man's f.lux
 
-# background
-exec --no-startup-id setbgutc
+# wallpaper
 bindsym $mod+n exec --no-startup-id setbgutc
 bindsym $alt+n exec --no-startup-id setbgutc
-#exec_always --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
-#bindsym $mod+n exec --no-startup-id feh --bg-fill "$(find ~/Pictures/Wallpapers | shuf | head -1)"
-
+exec --no-startup-id feh --bg-fill ~/.wallpaper
+exec --no-startup-id sleep 0.1 ; feh --bg-fill ~/.wallpaper
