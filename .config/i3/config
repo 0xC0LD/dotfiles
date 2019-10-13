@@ -109,12 +109,6 @@ bindsym $alt+Down  focus down
 bindsym $alt+Up    focus up
 bindsym $alt+Right focus right
 
-bindsym $mod+Ctrl+Left  workspace prev
-bindsym $mod+Ctrl+Right workspace next
-
-bindsym $alt+Ctrl+Left  workspace prev
-bindsym $alt+Ctrl+Right workspace next
-
 bindsym $mod+Shift+Left  move left 30
 bindsym $mod+Shift+Down  move down 30
 bindsym $mod+Shift+Up    move up 30
@@ -161,6 +155,16 @@ bindsym $alt+Shift+y resize shrink width 10 px or 10 ppt
 bindsym $alt+Shift+u resize shrink height 10 px or 10 ppt
 bindsym $alt+Shift+i resize grow height 10 px or 10 ppt
 bindsym $alt+Shift+o resize grow width 10 px or 10 ppt
+
+bindsym $mod+Ctrl+Left  resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Up    resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Down  resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
+
+bindsym $alt+Ctrl+Left  resize shrink width 10 px or 10 ppt
+bindsym $alt+Ctrl+Up    resize shrink height 10 px or 10 ppt
+bindsym $alt+Ctrl+Down  resize grow height 10 px or 10 ppt
+bindsym $alt+Ctrl+Right resize grow width 10 px or 10 ppt
 
 bindsym $mod+f fullscreen toggle
 bindsym $alt+f fullscreen toggle

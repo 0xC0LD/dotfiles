@@ -5,6 +5,7 @@ image="$HOME/.wallpaper"
 if [ -z "$input" ]; then
 	input="$image"
 else
+	[ -e "$input" ] && rm -rf "~/.wallpaper"
 	ln -sfr "$input" "$image"
 fi
 
