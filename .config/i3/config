@@ -4,7 +4,7 @@ set $alt Mod1
 
 # colors
 set $text-color          #ffffff
-set $bg-color 	         #4B0057
+set $bg-color            #4B0057
 set $inactive-text-color #808080
 set $inactive-bg-color   #200025
 set $bg-color-statusbar  #200025
@@ -20,8 +20,9 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # look
 font pango:Inconsolata Nerd Font Bold 12
 floating_modifier $mod
-hide_edge_borders both
+#hide_edge_borders both
 for_window [class="^.*"] border pixel 2
+#for_window [class="^.*"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Desktop Dimmer"] floating enable
 gaps inner 15
@@ -35,14 +36,16 @@ bindsym $alt+Shift+q kill
 
 # MMB over kills the window
 bindsym --release button2 kill
-bindsym --release $mod+button2 kill
+bindsym --whole-window $mod+button2 kill
+bindsym button9 floating toggle
+bindsym button8 floating toggle
 
 # fn keys
-bindsym XF86ScreenSaver exec ~/.scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $mod+x          exec ~/.scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $alt+x          exec ~/.scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $mod+Shift+x    exec ~/.scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $alt+Shift+x    exec ~/.scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
+bindsym XF86ScreenSaver exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
+bindsym $mod+x          exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
+bindsym $alt+x          exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
+bindsym $mod+Shift+x    exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
+bindsym $alt+Shift+x    exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
 bindsym XF86Battery     exec gnome-power-statistics
 #bindsym XF86Display
 #bindsym XF86TouchpadToggle
@@ -70,7 +73,7 @@ bindsym $alt+e layout stacking
 bindsym $mod+w layout tabbed
 bindsym $alt+w layout tabbed
 
-bindsym $mod+Shift+e     exec ~/.scripts/i3exit
+bindsym $mod+Shift+e     exec ~/.config/i3/scripts/i3exit
 bindsym $alt+Shift+e     exec ~/.scripts/i3exit
 bindsym $mod+space       focus mode_toggle
 bindsym $alt+space       focus mode_toggle
@@ -78,7 +81,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $alt+Shift+space floating toggle
 
 # RMB toggles floating
-bindsym button3 floating toggle
+#bindsym button3 floating toggle
 #bindsym $mod+button3 floating toggle
 
 bindsym $mod+h       focus left
@@ -283,8 +286,8 @@ exec_always --no-startup-id setxkbmap -model pc105 -layout us,rs,rs -variant ",,
 #ls /usr/share/X11/xkb/symbols
 
 # keyboard control
-bindsym $mod+a exec --no-startup-id ~/.scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
-bindsym $alt+a exec --no-startup-id ~/.scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
+bindsym $mod+a exec --no-startup-id ~/.config/i3/scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
+bindsym $alt+a exec --no-startup-id ~/.config/i3/scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
 
 # monitor setup
 exec_always --no-startup-id ~/.screenlayout/layout.sh
@@ -294,11 +297,11 @@ exec --no-startup-id xsettingsd                                # fix ugly fonts
 exec --no-startup-id compton --config ~/.config/compton/config # enable transparency
 exec --no-startup-id lxpolkit                                  # start lxde polkit for drive mounting
 exec --no-startup-id nm-applet                                 # enable wifi manager
-exec --no-startup-id dunst -conf ~/.config/dunst/config        # start notification daemon
+exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc       # start notification daemon
 exec --no-startup-id desktop-dimmer                            # poor man's f.lux
 
 # wallpaper
-bindsym $mod+n exec --no-startup-id setbgutc
-bindsym $alt+n exec --no-startup-id setbgutc
+bindsym $mod+n exec --no-startup-id ~/.config/i3/scripts/setbgutc
+bindsym $alt+n exec --no-startup-id ~/.config/i3/scripts/setbgutc
 exec --no-startup-id feh --bg-fill ~/.wallpaper
 exec --no-startup-id sleep 0.1 ; feh --bg-fill ~/.wallpaper

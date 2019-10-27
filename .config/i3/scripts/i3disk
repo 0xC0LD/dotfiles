@@ -1,7 +1,7 @@
 #!/bin/bash
 
 case $BLOCK_BUTTON in
-	1) nautilus && disown -a ;;
+	1) dolphin </dev/null &>/dev/null & ;;
 esac
 
 DIR="${BLOCK_INSTANCE:-$HOME}"

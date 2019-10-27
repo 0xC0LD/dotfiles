@@ -8,7 +8,7 @@ VOLM=""
 
 case $BLOCK_BUTTON in
   1) pamixer -t   ;;
-  3) pavucontrol &>/dev/null & ;;
+  3) pavucontrol </dev/null &>/dev/null & ;;
   4) pamixer -i 5 ;; # scroll up, increase
   5) pamixer -d 5 ;; # scroll down, decrease
 esac
