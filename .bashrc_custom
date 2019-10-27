@@ -5,6 +5,7 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 3)\][\[$([ "$EUID" -eq 0 ] && tput se
 alias edbashrc="vim ~/.bashrc_custom"
 alias edi3="vim ~/.config/i3/config"
 alias edi3blocks="vim ~/.config/i3/i3blocks.conf"
+alias edaw="vim ~/.config/awesome/rc.lua"
 alias edcomp="vim ~/.config/compton/config"
 alias eddunst="vim ~/.config/dunst/config"
 alias xu="xrdb ~/.Xresources"
@@ -13,6 +14,7 @@ alias xc="compton -b --config /home/user/.config/compton/config"
 alias mus="cd /run/media/user/HDD/Stuff/media/mp3/Music"
 alias dump="mkdir dump ; cd dump"
 alias dupes="find . -type f -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate" # find dupes by md5 hash
+alias fbg="feh --bg-fill ~/.wallpaper"
 
 # alias
 alias e="exit"
@@ -31,13 +33,16 @@ alias pac="sudo pacman --color=auto"
 alias paci="sudo pacman --color=auto -S"
 alias pacs="sudo pacman --color=auto -Ss"
 alias ls="ls -hN --color=auto --group-directories-first"
+alias lsa="ls -lah"
+alias lsf="ls -p | grep -v /"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias pacman="pacman --color=auto"
 alias vol="pamixer --get-volume"
 alias his="history"
 alias feh="feh --scale-down --auto-zoom -d"
-
+alias fehbg="feh --recursive --randomize --bg-fill"
+alias v="vim"
 
 # CD
 alias bin="cd /home/user/.scripts"
@@ -50,9 +55,9 @@ alias cdvid="cd /home/user/Videos"
 
 # other
 alias rm="rm -i"
-alias lsf="ls -p | grep -v /"
 alias clip="xclip -selection clipboard"
 alias gfx="lspci -k | grep -EA3 --color 'VGA|3D|Display'"
 alias yt="youtube-dl --add-metadata -i -o '%(title)s.%(ext)s'"
 alias yta="yt --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'"
 alias psa="ps aux"
+
