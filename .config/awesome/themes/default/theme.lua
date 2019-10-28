@@ -13,13 +13,13 @@ local theme = {}
 
 theme.font          = "Inconsolata NF 13"
 
-theme.bg_normal     = "#200025"
+theme.bg_normal     = "#2A0030"
 theme.bg_focus      = "#4B0057"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#16001A"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#ffffff"
+theme.fg_normal     = "#797979"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"

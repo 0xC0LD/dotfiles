@@ -38,7 +38,7 @@ awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
     -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
@@ -71,12 +71,10 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+mykeyboardlayout = awful.widget.keyboardlayout() -- Keyboard map indicator and switcher
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -269,8 +267,8 @@ clientkeys = gears.table.join(
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop                     end, {description = "toggle keep on top", group = "client"}),
 
     -- minimize and maximize
+    awful.key({ modkey, "Shift"   }, "n", function () local c = awful.client.restore() if c then c:emit_signal( "request::activate", "key.unminimize", {raise = true} ) end end, {description = "restore minimized", group = "client"}),
     awful.key({ modkey,           }, "n", function (c) c.minimized = true end , {description = "minimize", group = "client"}),
-    awful.key({ modkey, "Control" }, "n", function () local c = awful.client.restore() if c then c:emit_signal( "request::activate", "key.unminimize", {raise = true} ) end end, {description = "restore minimized", group = "client"}),
     awful.key({ modkey,           }, "m", function (c) c.maximized = not c.maximized c:raise() end , {description = "(un)maximize", group = "client"}),
     awful.key({ modkey, "Control" }, "m", function (c) c.maximized_vertical = not c.maximized_vertical c:raise() end , {description = "(un)maximize vertically", group = "client"}),
     awful.key({ modkey, "Shift"   }, "m", function (c) c.maximized_horizontal = not c.maximized_horizontal c:raise() end , {description = "(un)maximize horizontally", group = "client"})
@@ -468,20 +466,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autorun programs
 autorun = true
-autorunApps =
-{
-	"setxkbmap -model pc105 -layout us,rs,rs -variant \",,latin\" -option grp:alt_shift_toggle",
-	"~/.screenlayout/layout.sh",
-	"lxpolkit",
-	"compton -b --config ~/.config/compton/config",
-	"dunst -conf ~/.config/dunst/dunstrc",
-	"nm-applet",
-	"flameshot",
-}
 if autorun then
-	for app = 1, #autorunApps do
-		awful.util.spawn_with_shell(autorunApps[app])
-	end
+	awful.util.spawn_with_shell("~/.config/awesome/startup.sh")
 end
 
-awful.spawn();

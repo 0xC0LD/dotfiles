@@ -55,6 +55,8 @@ alias cdvid="cd /home/user/Videos"
 
 # other
 alias rm="rm -i"
+alias gid="pgrep -x"
+alias f="find . | grep -i"
 alias clip="xclip -selection clipboard"
 alias gfx="lspci -k | grep -EA3 --color 'VGA|3D|Display'"
 alias yt="youtube-dl --add-metadata -i -o '%(title)s.%(ext)s'"
