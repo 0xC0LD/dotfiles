@@ -60,7 +60,7 @@ bindsym $mod+Return         exec terminator
 bindsym $mod+Control+Return exec urxvt
 bindsym $alt+Return         exec terminator
 bindsym $alt+Control+Return exec urxvt
-bindsym $mod+b              exec nautilus
+bindsym $mod+b              exec dolphin
 bindsym $alt+b              exec nautilus
 bindsym $mod+r              exec urxvt -e ranger
 bindsym $mod+Control+r      exec terminator -x ranger
@@ -229,7 +229,7 @@ bindsym $alt+Shift+r restart
 # i3blocks
 bar {
 	font pango:Inconsolata Nerd Font Medium 12
-	position top
+	#position top
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf 
 	colors {
 		background $bg-color-statusbar
