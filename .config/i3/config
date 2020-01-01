@@ -22,7 +22,7 @@ font pango:Inconsolata Nerd Font Bold 12
 floating_modifier $mod
 #hide_edge_borders both
 for_window [class="^.*"] border pixel 2
-#for_window [class="^.*"] floating enable
+for_window [class="^.*"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Desktop Dimmer"] floating enable
 gaps inner 15
@@ -294,7 +294,8 @@ exec_always --no-startup-id ~/.screenlayout/layout.sh
 
 # startup
 exec --no-startup-id xsettingsd                                # fix ugly fonts
-exec --no-startup-id compton --config ~/.config/compton/config # enable transparency
+#exec --no-startup-id compton --config ~/.config/compton/config # enable transparency
+exec --no-startup-id picom --no-fading-openclose               # x comp managerb
 exec --no-startup-id lxpolkit                                  # start lxde polkit for drive mounting
 exec --no-startup-id nm-applet                                 # enable wifi manager
 exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc       # start notification daemon
