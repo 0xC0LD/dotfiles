@@ -1,2 +1,2 @@
 #!/bin/bash
-rofi -theme Monokai -modi run,drun -show drun -l 10 -font "Inconsolata Nerd Font Medium 30" -width 50 -show-icons
+rofi -theme sidebar -modi run,drun -show drun -font "Cantarell 18" -show-icons

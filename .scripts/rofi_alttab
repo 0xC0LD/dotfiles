@@ -1,3 +1,3 @@
 #!/bin/bash
-rofi -theme Monokai -modi window,windowcd -show window -l 10 -font "Inconsolata Nerd Font Medium 20" -width 60 -show-icons
+rofi -theme sidebar -modi window,windowcd -show window -font "Cantarell 18" -show-icons
 

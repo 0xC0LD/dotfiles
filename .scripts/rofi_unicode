@@ -1,5 +1,5 @@
 #!/bin/bash
-grep -v "#" ~/.lists/emoji | rofi -theme Monokai -font "Noto Sans 25" -lines 15 -p "" -dmenu -i | awk '{print $1}' | tr -d '\n' | xclip -selection clipboard
+grep -v "#" ~/.lists/emoji | rofi -theme sidebar -l 20 -font "Cantarell 18" -p "" -dmenu -i | awk '{print $1}' | tr -d '\n' | xclip -selection clipboard
 text="$(xclip -o -selection clipboard)"
 [ -z "$text" ] || notify-send -i "/usr/share/icons/gnome/48x48/actions/editcopy.png" -a "EMOJI TABLE" -t 2000 "\"$(xclip -o -selection clipboard)\" copied to clipboard."
 
