@@ -16,10 +16,10 @@ do
 
 	case "$key" in
 		$'\e[A'|$'\e0A')  # up arrow
-			pamixer -i 1
+			volup
 			get_volume ;;
 		$'\e[B'|$'\e0B') # down arrow
-			pamixer -d 1
+			voldown
 			get_volume ;;
 		q) exit ;;
 	esac

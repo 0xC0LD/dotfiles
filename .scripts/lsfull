@@ -1,0 +1,9 @@
+#!/bin/bash
+
+MAXDEPTH="$1"
+
+if [ -z "$MAXDEPTH" ]; then
+	find $PWD
+else
+	find $PWD -maxdepth "$MAXDEPTH"
+fi

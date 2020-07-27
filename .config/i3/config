@@ -56,10 +56,10 @@ bindsym XF86Battery     exec gnome-power-statistics
 #XF86Sleep
 
 #bindsym $mod+Return     exec i3-sensible-terminal
-bindsym $mod+Return         exec urxvt
-bindsym $mod+Control+Return exec terminator
-bindsym $alt+Return         exec urxvt
-bindsym $alt+Control+Return exec terminator
+bindsym $mod+Return         exec alacritty
+bindsym $mod+Control+Return exec urxvt
+bindsym $alt+Return         exec alacritty
+bindsym $alt+Control+Return exec urxvt
 bindsym $mod+b              exec dolphin
 bindsym $alt+b              exec dolphin
 bindsym $mod+r              exec urxvt -e ranger
@@ -74,7 +74,7 @@ bindsym $mod+w layout tabbed
 bindsym $alt+w layout tabbed
 
 bindsym $mod+Shift+e     exec ~/.config/i3/scripts/i3exit
-bindsym $alt+Shift+e     exec ~/.scripts/i3exit
+bindsym $alt+Shift+e     exec ~/.config/i3/scripts/i3exit
 bindsym $mod+space       focus mode_toggle
 bindsym $alt+space       focus mode_toggle
 bindsym $mod+Shift+space floating toggle
@@ -141,13 +141,13 @@ bindsym $mod+Shift+g gaps inner all set 15; gaps outer all set 15
 bindsym $alt+g       gaps inner all set 0;  gaps outer all set 0
 bindsym $alt+Shift+g gaps inner all set 15; gaps outer all set 15
 
-bindsym $mod+d       exec ~/.scripts/rofi_custom
-bindsym $mod+Shift+d exec ~/.scripts/rofi_unicode
-bindsym $mod+Tab     exec ~/.scripts/rofi_alttab
+bindsym $mod+d       exec ~/.config/i3/scripts/rofi_custom
+bindsym $mod+Shift+d exec ~/.config/i3/scripts/rofi_unicode
+bindsym $mod+Tab     exec ~/.config/i3/scripts/rofi_alttab
 
-bindsym $alt+d       exec ~/.scripts/rofi_custom
-bindsym $alt+Shift+d exec ~/.scripts/rofi_unicode
-bindsym $alt+Tab     exec ~/.scripts/rofi_alttab
+bindsym $alt+d       exec ~/.config/i3/scripts/rofi_custom
+bindsym $alt+Shift+d exec ~/.config/i3/scripts/rofi_unicode
+bindsym $alt+Tab     exec ~/.config/i3/scripts/rofi_alttab
 
 bindsym $mod+Shift+y resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
@@ -249,33 +249,33 @@ bindsym XF86AudioNext  exec --no-startup-id mocp -f; exec --no-startup-id notify
 bindsym XF86AudioPrev  exec --no-startup-id mocp -r; exec --no-startup-id notify-send "$(mocp -Q "%file" | sed "s/.*\///")" -a "MOCP: PREVIOUS"
 
 # volume ctrl
-bindsym XF86AudioMute                exec --no-startup-id pamixer -t;                 exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume         exec --no-startup-id pamixer -i 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym Control+XF86AudioRaiseVolume exec --no-startup-id pamixer -i 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume         exec --no-startup-id pamixer -d 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym Control+XF86AudioLowerVolume exec --no-startup-id pamixer -d 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMicMute             exec --no-startup-id pamixer --source 1 -t;      exec --no-startup-id pkill -RTMIN+11 i3blocks
-bindsym $mod+Shift+m                 exec --no-startup-id pamixer --source 1 -t;      exec --no-startup-id pkill -RTMIN+11 i3blocks
+bindsym XF86AudioMute                exec --no-startup-id pamixer -t;            exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume         exec --no-startup-id pamixer -i 5;          exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym Control+XF86AudioRaiseVolume exec --no-startup-id pamixer -i 1;          exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume         exec --no-startup-id pamixer -d 5;          exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym Control+XF86AudioLowerVolume exec --no-startup-id pamixer -d 1;          exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMicMute             exec --no-startup-id pamixer --source 1 -t; exec --no-startup-id pkill -RTMIN+11 i3blocks
+bindsym $mod+Shift+m                 exec --no-startup-id pamixer --source 1 -t; exec --no-startup-id pkill -RTMIN+11 i3blocks
 
-bindsym $mod+period                exec --no-startup-id pamixer -i 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+Control+period        exec --no-startup-id pamixer -i 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+period          exec --no-startup-id pamixer --allow-boost -i 5; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+Control+Shift+period  exec --no-startup-id pamixer --allow-boost -i 1; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+comma                 exec --no-startup-id pamixer -d 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+Control+comma         exec --no-startup-id pamixer -d 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+Shift+comma           exec --no-startup-id pamixer --allow-boost -d 5; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+Control+Shift+comma   exec --no-startup-id pamixer --allow-boost -d 1; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $mod+m                     exec --no-startup-id pamixer -t;                 exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+period                exec --no-startup-id ~/.config/i3/scripts/voldo -i 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+Control+period        exec --no-startup-id ~/.config/i3/scripts/voldo -i 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+period          exec --no-startup-id ~/.config/i3/scripts/voldo -i 5 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+Control+Shift+period  exec --no-startup-id ~/.config/i3/scripts/voldo -i 1 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+comma                 exec --no-startup-id ~/.config/i3/scripts/voldo -d 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+Control+comma         exec --no-startup-id ~/.config/i3/scripts/voldo -d 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+comma           exec --no-startup-id ~/.config/i3/scripts/voldo -d 5 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+Control+Shift+comma   exec --no-startup-id ~/.config/i3/scripts/voldo -d 1 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $mod+m                     exec --no-startup-id ~/.config/i3/scripts/voldo -t;                 exec --no-startup-id pkill -RTMIN+10 i3blocks
 
-bindsym $alt+period                exec --no-startup-id pamixer -i 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+Control+period        exec --no-startup-id pamixer -i 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+Shift+period          exec --no-startup-id pamixer --allow-boost -i 5; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+Control+Shift+period  exec --no-startup-id pamixer --allow-boost -i 1; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+comma                 exec --no-startup-id pamixer -d 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+Control+comma         exec --no-startup-id pamixer -d 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+Shift+comma           exec --no-startup-id pamixer --allow-boost -d 5; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+Control+Shift+comma   exec --no-startup-id pamixer --allow-boost -d 1; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym $alt+m                     exec --no-startup-id pamixer -t;                 exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+period                exec --no-startup-id ~/.config/i3/scripts/voldo -i 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+Control+period        exec --no-startup-id ~/.config/i3/scripts/voldo -i 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+Shift+period          exec --no-startup-id ~/.config/i3/scripts/voldo -i 5 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+Control+Shift+period  exec --no-startup-id ~/.config/i3/scripts/voldo -i 1 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+comma                 exec --no-startup-id ~/.config/i3/scripts/voldo -d 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+Control+comma         exec --no-startup-id ~/.config/i3/scripts/voldo -d 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+Shift+comma           exec --no-startup-id ~/.config/i3/scripts/voldo -d 5 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+Control+Shift+comma   exec --no-startup-id ~/.config/i3/scripts/voldo -d 1 --allow-boost; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym $alt+m                     exec --no-startup-id ~/.config/i3/scripts/voldo -t;                 exec --no-startup-id pkill -RTMIN+10 i3blocks
 
 # set keyboard layouts
 exec_always --no-startup-id setxkbmap -model pc105 -layout us,rs,rs -variant ",,latin" -option ""
@@ -290,7 +290,7 @@ bindsym $mod+a exec --no-startup-id ~/.config/i3/scripts/i3keyboard_switch; exec
 bindsym $alt+a exec --no-startup-id ~/.config/i3/scripts/i3keyboard_switch; exec --no-startup-id pkill -RTMIN+12 i3blocks 
 
 # monitor setup
-exec_always --no-startup-id ~/.screenlayout/layout.sh
+exec_always --no-startup-id ~/.screenlayout/pc.sh
 
 # startup
 exec --no-startup-id picom --config /dev/null            # x comp manager
