@@ -7,10 +7,10 @@ VOL3=""
 VOLM=""
 
 case $BLOCK_BUTTON in
-  1) pamixer -t   ;;
-  3) pavucontrol </dev/null &>/dev/null & ;;
-  4) pamixer -i 5 ;; # scroll up, increase
-  5) pamixer -d 5 ;; # scroll down, decrease
+  1) ~/.config/i3/scripts/voldo -t >/dev/null 2>/dev/null ;;   # mute
+  3) pavucontrol </dev/null &>/dev/null & ;;                   # start pulse audio control
+  4) ~/.config/i3/scripts/voldo -i 5 >/dev/null 2>/dev/null ;; # scroll up, increase
+  5) ~/.config/i3/scripts/voldo -d 5 >/dev/null 2>/dev/null ;; # scroll down, decrease
 esac
 
 volume="$(pamixer --get-volume)"

@@ -21,7 +21,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 font pango:Inconsolata Nerd Font Bold 12
 floating_modifier $mod
 #hide_edge_borders both
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 #for_window [class="^.*"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Desktop Dimmer"] floating enable
@@ -41,11 +41,11 @@ bindsym button9 floating toggle
 bindsym button8 floating toggle
 
 # fn keys
-bindsym XF86ScreenSaver exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $mod+x          exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $alt+x          exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $mod+Shift+x    exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
-bindsym $alt+Shift+x    exec ~/.config/i3/scripts/i3lock_pixelIcon ~/Pictures/lockscreen.png
+bindsym XF86ScreenSaver exec ~/.config/i3/scripts/i3lock_pixelIcon ~/.config/i3/img/lockscreen.png
+bindsym $mod+x          exec ~/.config/i3/scripts/i3lock_pixelIcon ~/.config/i3/img/lockscreen.png
+bindsym $alt+x          exec ~/.config/i3/scripts/i3lock_pixel
+bindsym $mod+Shift+x    exec ~/.config/i3/scripts/i3lock_blur
+bindsym $alt+Shift+x    exec ~/.config/i3/scripts/i3lock_vibrant
 bindsym XF86Battery     exec gnome-power-statistics
 #bindsym XF86Display
 #bindsym XF86TouchpadToggle
