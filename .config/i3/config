@@ -41,8 +41,8 @@ bindsym button9 floating toggle
 bindsym button8 floating toggle
 
 # fn keys
-bindsym XF86ScreenSaver exec ~/.config/i3/scripts/i3lock_pixelIcon ~/.config/i3/img/lockscreen.png
-bindsym $mod+x          exec ~/.config/i3/scripts/i3lock_pixelIcon ~/.config/i3/img/lockscreen.png
+bindsym XF86ScreenSaver exec ~/.config/i3/scripts/i3lock_custom
+bindsym $mod+x          exec ~/.config/i3/scripts/i3lock_custom
 bindsym $alt+x          exec ~/.config/i3/scripts/i3lock_pixel
 bindsym $mod+Shift+x    exec ~/.config/i3/scripts/i3lock_blur
 bindsym $alt+Shift+x    exec ~/.config/i3/scripts/i3lock_vibrant

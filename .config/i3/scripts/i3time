@@ -4,5 +4,5 @@ case $BLOCK_BUTTON in
 	3) urxvt -e sh -c "cal -3 && read -p \"\"" </dev/null &>/dev/null & ;;
 esac
 
-echo -e "[$(date +"%Y-%m-%d %H:%M:%S")]"
+echo -e " $(date +"%Y-%m-%d %H:%M:%S")"
 

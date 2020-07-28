@@ -90,50 +90,50 @@ window:
 # Font configuration
 font:
   # Normal (roman) font face
-  #normal:
+  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Italic
 
   # Bold italic font face
-  #bold_italic:
+  bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+    style: Bold Italic
 
   # Point size
   size: 12.0
@@ -173,7 +173,7 @@ font:
 # Colors (Tomorrow Night Bright)
 colors:
   # Default colors
-  #primary:
+  primary:
     background: '#000000'
     foreground: '#eaeaea'
 
@@ -189,40 +189,40 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '#000000'
-  #  cursor: '#ffffff'
+  cursor:
+    text: '#000000'
+    cursor: '#ffffff'
 
   # Selection colors
   #
   # Colors which should be used to draw the selection area. If selection
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
-  #selection:
-  #  text: '#eaeaea'
-  #  background: '#404040'
+  selection:
+    text: '#eaeaea'
+    background: '#404040'
 
   # Normal colors
-  #normal:
-  #  black:   '#000000'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e6c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0ba'
-  #  white:   '#eaeaea'
+  normal:
+    black:   '#263640'
+    red:     '#d12f2c'
+    green:   '#819400'
+    yellow:  '#b08500'
+    blue:    '#2587cc'
+    magenta: '#696ebf'
+    cyan:    '#289c93'
+    white:   '#d5d5d5'
 
   # Bright colors
-  #bright:
-  #  black:   '#666666'
-  #  red:     '#ff3334'
-  #  green:   '#9ec400'
-  #  yellow:  '#e7c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#b77ee0'
-  #  cyan:    '#54ced6'
-  #  white:   '#ffffff'
+  bright:
+    black:   '#4a697d'
+    red:     '#fa3935'
+    green:   '#a4bd00'
+    yellow:  '#d9a400'
+    blue:    '#2ca2f5'
+    magenta: '#8086e8'
+    cyan:    '#33c5ba'
+    white:   '#ffffff'
 
   # Dim colors
   #
