@@ -249,13 +249,11 @@ bindsym XF86AudioNext  exec --no-startup-id mocp -f; exec --no-startup-id notify
 bindsym XF86AudioPrev  exec --no-startup-id mocp -r; exec --no-startup-id notify-send "$(mocp -Q "%file" | sed "s/.*\///")" -a "MOCP: PREVIOUS"
 
 # volume ctrl
-bindsym XF86AudioMute                exec --no-startup-id pamixer -t;            exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume         exec --no-startup-id pamixer -i 5;          exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym Control+XF86AudioRaiseVolume exec --no-startup-id pamixer -i 1;          exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume         exec --no-startup-id pamixer -d 5;          exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym Control+XF86AudioLowerVolume exec --no-startup-id pamixer -d 1;          exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMicMute             exec --no-startup-id pamixer --source 1 -t; exec --no-startup-id pkill -RTMIN+11 i3blocks
-bindsym $mod+Shift+m                 exec --no-startup-id pamixer --source 1 -t; exec --no-startup-id pkill -RTMIN+11 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/voldo -i 5; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/voldo -i 5; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute        exec --no-startup-id ~/.config/i3/scripts/voldo -t;   exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMicMute     exec --no-startup-id pamixer --source 1 -t;           exec --no-startup-id pkill -RTMIN+11 i3blocks
+bindsym $mod+Shift+m         exec --no-startup-id pamixer --source 1 -t;           exec --no-startup-id pkill -RTMIN+11 i3blocks
 
 bindsym $mod+period                exec --no-startup-id ~/.config/i3/scripts/voldo -i 5;               exec --no-startup-id pkill -RTMIN+10 i3blocks
 bindsym $mod+Control+period        exec --no-startup-id ~/.config/i3/scripts/voldo -i 1;               exec --no-startup-id pkill -RTMIN+10 i3blocks
