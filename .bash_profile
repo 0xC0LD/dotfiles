@@ -22,7 +22,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 # less
 export LESS='-R'
-export LESSOPEN='|/vip/.lessfilter %s'
+export LESSOPEN='|/vip/lessfilter %s'
 # qt theme
 #export QT_QPA_PLATFORMTHEME=qt5ct
 
