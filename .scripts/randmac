@@ -1,8 +1,0 @@
-#!/bin/bash
-
-base="00:60:2F"
-(( $# )) && { base=$1; }
-
-hexchars="01234567890ABCDEF"
-end=$( for i in {1..6} ; do echo -n ${hexchars:$(( $RANDOM % 16 )):1} ; done | sed -e 's/\(..\)/:\1/g')
-echo -e "$base$end"

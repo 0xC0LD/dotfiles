@@ -1,0 +1,3 @@
+#!/bin/bash
+IFACE="$(wlanDevice mon)"
+sudo tcpdump -vv -i "$IFACE" icmp and icmp[icmptype]=icmp-echo

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+input_file="$1"
+ssid="$2"
+password="$3"
+
+while [ -z "$input_file" ]; do read -p 'file: '     input_file ; done
+while [ -z "$ssid" ];       do read -p 'ssid: '     ssid       ; done
+while [ -z "$password" ];   do read -p 'password: ' password   ; done
+
+echo "$ssid" | grep ":" > /dev/null 2>/dev/null
+if [ $? -eq 0 ]; then
+	echo "$3" | aircrack-ng "$input_file" -b "$ssid" -w -
+else
+	echo "$3" | aircrack-ng "$input_file" -e "$ssid" -w -
+fi

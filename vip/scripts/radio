@@ -1,0 +1,7 @@
+#!/bin/bash
+FILE="/vip/lists/stations"
+link=$(cat $FILE | fzf --layout=reverse)
+[ -z "$link" ] && exit
+while true; do
+	mpv --geometry=100%:100% --autofit-larger=700 "${link%% *}"
+done

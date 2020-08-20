@@ -1,0 +1,2 @@
+#!/bin/bash
+[ -z "$1" ] && find $PWD || find $PWD -maxdepth "$1"

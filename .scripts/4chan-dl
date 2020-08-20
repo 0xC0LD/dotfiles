@@ -1,2 +1,0 @@
-#!/bin/bash
-wget -nd -r -l 1 -H -D is2.4chan.org -A png,gif,jpg,jpeg,webm "$1"

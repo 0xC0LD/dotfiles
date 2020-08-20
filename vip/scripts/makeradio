@@ -1,0 +1,7 @@
+#!/bin/bash
+FILE="/vip/lists/stations"
+FILE2="/vip/lists/stations_url"
+cat "$FILE2" | while read line ; do
+	echo -e "$line - $(webtitle "$line")"
+done
+
