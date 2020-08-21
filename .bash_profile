@@ -2,7 +2,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # path mods
-export PATH="$PATH":"/vip/scripts":"/home/user/.config/i3/scripts"
+export PATH="$PATH":"/home/user/.vip/scripts":"/home/user/.config/i3/scripts"
 
 # default programs
 export EDITOR="nvim"
@@ -22,7 +22,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 # less
 export LESS='-R'
-export LESSOPEN='|/vip/lessfilter %s'
+export LESSOPEN='|/home/user/.vip/lessfilter %s'
 # qt theme
 #export QT_QPA_PLATFORMTHEME=qt5ct
 
