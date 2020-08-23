@@ -26,6 +26,7 @@ alias \
 	pls="sudo" \
 	plz="sudo" \
 	psa="ps aux" \
+	psf="pgrep -af" \
 	ka="killall" \
 	f="find . | grep -i" \
 	vol="pamixer --get-volume" \
@@ -59,7 +60,7 @@ alias \
 	yta="yt --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'" \
 	clc="history -p !! | tr -d '\n' | xclip -selection clipboard" \
 	clcn="history -p !! | xclip -selection clipboard" \
-	exip="echo -e "$(curl -s ifconfig.me)"" \
+	exip="curl -s ifconfig.me" \
 	wtr="curl wttr.in" \
 	cmaim="maim -s -u | xclip -selection clipboard -t image/png -i" \
 	utc="date +%s" \
@@ -79,6 +80,8 @@ alias \
 	ns="netstat -antp" \
 	ungz="tar -zxvf" \
 	4chan-dl="wget -nd -r -l 1 -H -D is2.4chan.org -A png,gif,jpg,jpeg,webm" \
+	sc="shellcheck" \
+	loadbash="PS4='+ $BASH_SOURCE:$LINENO:' bash -xic ''" \
 	check="cowsay 'ALIAS1 WORKS!'"
 
 # CD shortcuts
@@ -93,5 +96,3 @@ alias \
 	cdmus="cd /home/user/Music" \
 	cdvid="cd /home/user/Videos" \
 	check2="cowsay 'ALIAS2 WORKS!'"
-
-
