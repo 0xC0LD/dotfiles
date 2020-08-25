@@ -1,7 +1,10 @@
 #!/bin/bash
-FILE="/vip/lists/stations"
-link=$(cat $FILE | fzf --layout=reverse)
+FILE="$HOME/.vip/lists/personal/stations"
+link="$(< "$FILE" fzf --layout=reverse)"
 [ -z "$link" ] && exit
-while true; do
-	mpv --geometry=100%:100% --autofit-larger=700 "${link%% *}"
-done
+
+RUN() {
+	if ! mpv --volume=50 --geometry=100%:100% --autofit-larger=700 "${link%% *}"; then RUN; fi
+}
+
+RUN

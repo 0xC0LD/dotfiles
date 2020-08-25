@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/dash
 
-if [ "$1" == "mon" ]; then
+if [ "$1" = "mon" ]; then
 	ifconfig | grep "$(wlanDevice mon)" 2>/dev/null >/dev/null && exit
 	sudo airmon-ng start "$(wlanDevice)"
 	ifconfig
 	exit
 fi
 
-if [ "$1" == "fix" ]; then
+if [ "$1" = "fix" ]; then
 	sudo airmon-ng stop "$(wlanDevice mon)"
 	ifconfig
 	exit

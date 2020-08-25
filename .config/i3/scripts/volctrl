@@ -6,11 +6,11 @@ get_volume(){
 
 get_volume
 
-while read -sn1 key # 1 char
+while read -r -sn1 key # 1 char
 do
-	read -sn1 -t 0.0001 k1
-	read -sn1 -t 0.0001 k2
-	read -sn1 -t 0.0001 k3
+	read -r -sn1 -t 0.0001 k1
+	read -r -sn1 -t 0.0001 k2
+	read -r -sn1 -t 0.0001 k3
 
 	key+=${k1}${k2}${k3}
 

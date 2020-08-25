@@ -16,7 +16,6 @@ fi
 if [ -z "$1" ]; then
 	echo -e "current:"
 	service --status-all | grep "apache2"
-	echo $NULL
 	echo -e "options:"
 	echo -e " website start"
 	echo -e " website stop"

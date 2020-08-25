@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/dash
 tshark -i "$1" -Y "icmp"

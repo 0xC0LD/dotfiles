@@ -39,8 +39,15 @@ alias \
 	clip="xclip -selection clipboard" \
 	v="nvim" \
 	vim="nvim" \
+	lsf="ls -p | grep -v /" \
 	r="ranger" \
-	open="dolphin --select" \
+	ungz="tar -zxvf" \
+	sc="shellcheck" \
+	ns="netstat -antp" \
+	utc="date +%s" \
+
+# color
+alias \
 	ls="ls --color=auto --group-directories-first -hN" \
 	la="ls --color=auto --group-directories-first -lah" \
 	grep="grep --color=auto" \
@@ -52,37 +59,47 @@ alias \
 	tree="tree -C" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
-	lsf="ls -p | grep -v /" \
+
+# checkers
+alias \
 	gfx="lspci -k | grep -EA3 --color 'VGA|3D|Display'" \
+	dupes="find . -type f -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate" \
+	gpath="echo "\$PATH" | tr ':' '\n'" \
+
+# long commands
+alias \
 	feh="feh --scale-down --auto-zoom -d" \
 	fehbg="feh --recursive --randomize --bg-fill" \
-	yt="youtube-dl --add-metadata -i -o '%(title)s.%(ext)s'" \
-	yta="yt --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'" \
 	clc="history -p !! | tr -d '\n' | xclip -selection clipboard" \
 	clcn="history -p !! | xclip -selection clipboard" \
-	exip="curl -s ifconfig.me" \
-	wtr="curl wttr.in" \
 	cmaim="maim -s -u | xclip -selection clipboard -t image/png -i" \
-	utc="date +%s" \
-	gpath="echo "$PATH" | tr ':' '\n'" \
+	xc="compton -b --config /home/user/.config/compton/config" \
+	mus="cd /media/HDD/Stuff/media/mp3/Music" \
+	dump="mkdir dump ; cd dump" \
+	fbg="feh --bg-fill ~/.wallpaper" \
+	open="dolphin --select" \
+
+# edit
+alias \
 	edbashrc="nvim ~/.bashrc" \
 	edi3="nvim ~/.config/i3/config" \
 	edi3blocks="nvim ~/.config/i3/i3blocks.conf" \
 	edres="nvim ~/.Xresources" \
-	xu="xrdb ~/.Xresources" \
-	xc="compton -b --config /home/user/.config/compton/config" \
-	mus="cd /media/HDD/Stuff/media/mp3/Music" \
-	dump="mkdir dump ; cd dump" \
-	dupes="find . -type f -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate" \
-	fbg="feh --bg-fill ~/.wallpaper" \
-	kbmap="setxkbmap -model pc105 -layout us,rs,rs -variant ",,latin" -option """ \
+
+# update
+alias \
 	update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
-	ns="netstat -antp" \
-	ungz="tar -zxvf" \
-	4chan-dl="wget -nd -r -l 1 -H -D is2.4chan.org -A png,gif,jpg,jpeg,webm" \
-	sc="shellcheck" \
+	kbmap="setxkbmap -model pc105 -layout us,rs,rs -variant ",,latin" -option """ \
 	loadbash="PS4='+ $BASH_SOURCE:$LINENO:' bash -xic ''" \
-	check="cowsay 'ALIAS1 WORKS!'"
+	xu="xrdb ~/.Xresources" \
+
+# web
+alias \
+	wtr="curl wttr.in" \
+	exip="curl -s ifconfig.me" \
+	4chan-dl="wget -nd -r -l 1 -H -D is2.4chan.org -A png,gif,jpg,jpeg,webm" \
+	yt="youtube-dl -i --add-metadata -o '%(title)s.%(ext)s'" \
+	yta="youtube-dl -i --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'" \
 
 # CD shortcuts
 alias \
@@ -95,4 +112,5 @@ alias \
 	cddoc="cd /home/user/Documents" \
 	cdmus="cd /home/user/Music" \
 	cdvid="cd /home/user/Videos" \
-	check2="cowsay 'ALIAS2 WORKS!'"
+
+

@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/dash
 INPUT="$1"
-while [ -z "$INPUT" ]; do read -p 'INPUT: ' INPUT; done
+while [ -z "$INPUT" ]; do read -r -p 'INPUT: ' INPUT; done
 cd /
 find . 2>/dev/null | grep "$INPUT" 2>/dev/null

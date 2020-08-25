@@ -14,12 +14,12 @@ BATW=""
 
 acpi_output="$(acpi)"
 number="$(echo "$acpi_output" | cut -d " " -f3-5 | sed "s/%.*//" | awk '{print $2}')"
-display_var="$(echo $acpi_output | cut -d " " -f3-5 | sed -e "s/,//g;s/Discharging//;s/Charging//;s/Unknown//;s/Full//;s/ 0*/ /g;s/ :/ /g")"
+display_var="$(echo "$acpi_output" | cut -d " " -f3-5 | sed -e "s/,//g;s/Discharging//;s/Charging//;s/Unknown//;s/Full//;s/ 0*/ /g;s/ :/ /g")"
 
-if   [ $number -ge 95 ]; then ICON="$BAT5" ; 
-elif [ $number -ge 75 ]; then ICON="$BAT4" ;
-elif [ $number -ge 50 ]; then ICON="$BAT3" ;
-elif [ $number -ge 20 ]; then ICON="$BAT2" ;
+if   [ "$number" -ge 95 ]; then ICON="$BAT5" ; 
+elif [ "$number" -ge 75 ]; then ICON="$BAT4" ;
+elif [ "$number" -ge 50 ]; then ICON="$BAT3" ;
+elif [ "$number" -ge 20 ]; then ICON="$BAT2" ;
 else ICON="$BAT1 $BATW" ; fi
 
 echo -e "$ICON $display_var"

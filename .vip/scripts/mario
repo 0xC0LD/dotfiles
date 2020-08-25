@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 beep 660 100
 sleep 0.150
 beep 660 100

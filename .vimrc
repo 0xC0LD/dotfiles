@@ -7,3 +7,4 @@ if !(&filetype == "txt")
 endif
 set mouse=a
 
+autocmd BufRead * if getline(1) == '#!/bin/dash' | set filetype=sh | endif

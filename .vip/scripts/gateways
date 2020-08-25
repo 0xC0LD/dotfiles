@@ -1,2 +1,2 @@
-#!/bin/bash
-echo -e "$(/sbin/ip route | awk '/default/ { print $3 }' | uniq | tr "\n" " ")"
+#!/bin/dash
+printf "%s\n" "$(/sbin/ip route | awk '/default/ { print $3 }' | uniq | tr "\n" " ")"

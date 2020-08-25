@@ -23,7 +23,7 @@ MENU() {
 	echo -e "  \e[33m[\e[91m2\e[33m]\e[0m NMAP\e[0m"
 	echo -e "  \e[33m[\e[91m3\e[33m]\e[0m NMAP - BLOCKS"
 	echo -e "  \e[33m[\e[91m4\e[33m]\e[0m NMAP - TABLE"
-	read -n1 -p  '  >' INPUT
+	read -n1 -r -p  '  >' INPUT
 	if [ -z "$INPUT" ]; then
 		echo
 		echo -e "\e[91mNo option chosen... \e[0m"
@@ -33,87 +33,63 @@ MENU() {
 }
 
 PING() {
-	#setup
 	GATEWAY="$1"
-	GATEWAY_CUTTED=$(echo $GATEWAY | cut -d. -f4 --complement)
-	#scan
-	for i in {1..254} ; do (ping $GATEWAY_CUTTED.$i -c 1 -w 3 >/dev/null && echo "$GATEWAY_CUTTED.$i" &) ;done
+	GATEWAY_CUTTED=$(echo "$GATEWAY" | cut -d. -f4 --complement)
+	for i in {1..254} ; do (ping "$GATEWAY_CUTTED"."$i" -c 1 -w 3 >/dev/null && echo "$GATEWAY_CUTTED.$i" &) ;done
 	sleep 3 #this depends on the -w arg of the ping
 }
 
 NMAP() {
-	#setup
 	GATEWAY="$1"
-	#scan
-	nmap -sP $GATEWAY/24
+	nmap -sP "$GATEWAY"/24
 }
 
 NMAP_BLOCKS() {
-	#setup
 	GATEWAY="$1"
-	#scan
 	CLIENT_NUM="0"
-	nmap -sP $GATEWAY/24 | while read line ; do
-		IP=$(echo $line | awk -F "Nmap scan report for " {'printf $2'} | cut -f1)
-		TIME=$(echo $line | awk -F "Host is " {'printf $2'} | cut -f1)
-		MAC=$(echo $line | awk -F "MAC Address: " {'printf $2'} | cut -f1)
-		echo $IP | grep "." >/dev/null 2>/dev/null
-		if [ $? -eq 0 ]; then
+	while read -r line ; do
+		IP=$(  echo "$line" | awk -F "Nmap scan report for " '{printf $2}')
+		TIME=$(echo "$line" | awk -F "Host is "              '{printf $2}')
+		MAC=$( echo "$line" | awk -F "MAC Address: "         '{printf $2}')
+		if echo "$IP" | grep "." >/dev/null 2>/dev/null; then
 			((CLIENT_NUM++))
 			echo
 			echo -e    " \e[0mINDEX: \e[33m$CLIENT_NUM\e[0m"
 			echo -e -n "    \e[0mIP: \e[91m$IP\e[0m"
-			echo $LOCALHOST | grep -sw "$IP" >/dev/null 2>/dev/null
-			if [ $? -eq 0 ]; then
+			if echo "$LOCALHOST" | grep -sw "$IP" >/dev/null 2>/dev/null ; then
 				echo -e "\e[91m (You)\e[0m"
 			else
-				echo
+				echo -e ""
 			fi
 		fi
-		echo $TIME | grep "latency" >/dev/null 2>/dev/null
-		[ $? -eq 0 ] && echo -e "  \e[0mTIME: \e[36m$TIME\e[0m"
-		echo $MAC | grep ":" >/dev/null 2>/dev/null
-		[ $? -eq 0 ] && echo -e "   \e[0mMAC: \e[92m$MAC\e[0m"
-	done
+		if echo "$TIME" | grep "latency" >/dev/null 2>/dev/null ; then echo -e "  \e[0mTIME: \e[36m$TIME\e[0m" ; fi
+		if echo "$MAC"  | grep ":"       >/dev/null 2>/dev/null ; then echo -e "   \e[0mMAC: \e[92m$MAC\e[0m"  ; fi
+	done <<< "$(nmap -sP "$GATEWAY"/24)"
 }
 
 NMAP_TABLE() {
-	#setup
 	GATEWAY="$1"
-	#scan
 	CLIENT_NUM="0"
-	nmap -sP $GATEWAY/24 | while read line ; do
-		IP=$(echo $line | awk -F "Nmap scan report for " {'printf $2'} | cut -f1)
-		TIME=$(echo $line | awk -F "Host is " {'printf $2'} | cut -f1)
-		MAC=$(echo $line | awk -F "MAC Address: " {'printf $2'} | cut -f1)
-		echo $IP | grep "." >/dev/null 2>/dev/null
-		if [ $? -eq 0 ]; then
+	output=""
+	while read -r line ; do
+		IP=$(  echo "$line" | awk -F "Nmap scan report for " '{printf $2}')
+		TIME=$(echo "$line" | awk -F "Host is "              '{printf $2}')
+		MAC=$( echo "$line" | awk -F "MAC Address: "         '{printf $2}')
+		if echo "$IP" | grep "." >/dev/null 2>/dev/null; then
 			((CLIENT_NUM++))
-			echo                          >> /tmp/net-scan.output
-			echo -ne "\e[93m$CLIENT_NUM\e[0m" >> /tmp/net-scan.output
-			echo -ne "~"                      >> /tmp/net-scan.output
-			echo $LOCALHOST | grep -sw "$IP" >/dev/null 2>/dev/null
-			if [ $? -eq 0 ]; then
-				echo -ne "\e[91m$IP (You)\e[0m" >> /tmp/net-scan.output
+			output+="\n"
+			output+="\e[93m$CLIENT_NUM\e[0m"
+			output+="~"
+			if echo "$LOCALHOST" | grep -sw "$IP" >/dev/null 2>/dev/null; then
+				output+="\e[91m$IP (You)\e[0m"
 			else
-				echo -ne "\e[91m$IP\e[0m"       >> /tmp/net-scan.output
+				output+="\e[91m$IP\e[0m"
 			fi
 		fi
-		echo $TIME | grep "latency" >/dev/null 2>/dev/null
-		if [ $? -eq 0 ]; then
-			echo -ne "~"                >> /tmp/net-scan.output
-			echo -ne "\e[36m$TIME\e[0m" >> /tmp/net-scan.output
-		fi
-		echo $MAC | grep ":" >/dev/null 2>/dev/null
-		if [ $? -eq 0 ]; then
-			echo -ne "~"               >> /tmp/net-scan.output
-			echo -ne "\e[92m$MAC\e[0m" >> /tmp/net-scan.output
-		fi
-	done
-	#readarray -t ARR < <(cat /tmp/net-scan.output | tr "\n" "\n")
-	#printf '%s\n' "${ARR[@]}" | column -t -s "____"
-	cat /tmp/net-scan.output | column -t -s "~"
-	rm /tmp/net-scan.output
+		if echo "$TIME" | grep "latency" >/dev/null 2>/dev/null; then output+="~\e[36m$TIME\e[0m" ; fi
+		if echo "$MAC"  | grep ":"       >/dev/null 2>/dev/null; then otuput+="~\e[92m$MAC\e[0m"  ; fi
+	done <<< "$(nmap -sP "$GATEWAY"/24)"
+	echo -e "$output" | column -t -s '~'
 }
 
 OPTIONS() {
@@ -122,8 +98,8 @@ OPTIONS() {
 	[ "$INPUT" == "2" ] && OPTION="NMAP"
 	[ "$INPUT" == "3" ] && OPTION="NMAP_BLOCKS"
 	[ "$INPUT" == "4" ] && OPTION="NMAP_TABLE"
-	if ! [ -z "$OPTION" ]; then
-		if ! [ -z "$INPUT2" ]; then
+	if [ -n "$OPTION" ]; then
+		if [ -n "$INPUT2" ]; then
 			#print gateway
 			echo
 			echo -e "\e[33mScanning gateway [\e[91m$INPUT2\e[33m]...\e[0m"
@@ -131,13 +107,13 @@ OPTIONS() {
 			$OPTION "$INPUT2"
 		else
 			#ip loop
-			/sbin/ip route | awk '/default/ { print $3 }' | uniq | while read GATEWAY ; do
+			while read -r GATEWAY ; do
 				#print gateway
 				echo
 				echo -e "\e[33mScanning gateway [\e[91m$GATEWAY\e[33m]...\e[0m"
 				echo
 				$OPTION "$GATEWAY"
-			done
+			done <<< "$(/sbin/ip route | awk '/default/ { print $3 }' | uniq)"
 		fi
 		QUIT
 	fi

@@ -3,24 +3,23 @@
 INTERFACE="$1"
 COMMAND="iwlist scan"
 
-[ ! -z "$INTERFACE" ] && COMMAND="iwlist $INTERFACE scan" 
+[ -n "$INTERFACE" ] && COMMAND="iwlist $INTERFACE scan" 
 
-$COMMAND 2>/dev/null | while read line ; do
+$COMMAND 2>/dev/null | while read -r line ; do
 
 	DEVICE=""
-	echo "$line" | grep "Scan completed" 2>/dev/null >/dev/null
-	[ $? -eq 0 ] && DEVICE=$(echo $line | cut -d' ' -f1)
-	MAC=$(       echo $line | awk -F "Address: "       {'printf $2'})
-	CHANNEL=$(   echo $line | awk -F "Channel:"        {'printf $2'})
-	ENCRYPTION=$(echo $line | awk -F "Encryption key:" {'printf $2'})
-	ESSID=$(     echo $line | awk -F "ESSID:"          {'printf $2'})
+	if echo "$line" | grep "Scan completed" 2>/dev/null >/dev/null; then DEVICE="$(echo "$line" | cut -d ' ' -f 1)"; fi
+	MAC=$(       echo "$line" | awk -F "Address: "       '{printf $2}')
+	CHANNEL=$(   echo "$line" | awk -F "Channel:"        '{printf $2}')
+	ENCRYPTION=$(echo "$line" | awk -F "Encryption key:" '{printf $2}')
+	ESSID=$(     echo "$line" | awk -F "ESSID:"          '{printf $2}')
 
-	[ ! -z "$DEVICE"     ] && echo -e    "\n\e[91m$DEVICE:\e[0m"
-	[ ! -z "$MAC"        ] && echo -ne     "\e[92m$MAC\e[0m"
-	[ ! -z "$CHANNEL"    ] && echo -ne "	\e[93m$CHANNEL\e[0m"
-	[ ! -z "$ENCRYPTION" ] && echo -ne "	\e[94m$ENCRYPTION\e[0m"
-	[ ! -z "$ESSID"      ] && echo -ne "	\e[95m$ESSID\e[0m\n"
+	[ -n "$DEVICE"     ] && echo  -e     "\n\e[91m$DEVICE:\e[0m"
+	[ -n "$MAC"        ] && echo -ne       "\e[92m$MAC\e[0m"
+	[ -n "$CHANNEL"    ] && echo -ne "	\e[93m$CHANNEL\e[0m"
+	[ -n "$ENCRYPTION" ] && echo -ne "	\e[94m$ENCRYPTION\e[0m"
+	[ -n "$ESSID"      ] && echo -ne "	\e[95m$ESSID\e[0m\n"
 done
 
-echo -e "\n\n"
+printf "\n\n"
 

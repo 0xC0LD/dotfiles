@@ -1,3 +1,2 @@
-#!/bin/bash
-var=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $2 }' | tr "\n" " ")
-echo ${var::-1}
+#!/bin/dash
+printf "%s\n" "$(ifconfig | grep "inet" | grep -v "127.0.0.1" | grep -v "inet6" | awk '{print $2}' | tr "\n" " ")"

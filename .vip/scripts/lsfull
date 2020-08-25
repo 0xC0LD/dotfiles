@@ -1,2 +1,6 @@
-#!/bin/bash
-[ -z "$1" ] && find $PWD || find $PWD -maxdepth "$1"
+#!/bin/dash
+if [ -z "$1" ]; then
+	find "$PWD"
+else
+	find "$PWD" -maxdepth "$1"
+fi

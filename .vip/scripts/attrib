@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # ntfs_attr.sh - Display or change attributes on an NTFS filesystem
 

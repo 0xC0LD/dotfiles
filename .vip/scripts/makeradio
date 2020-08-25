@@ -1,7 +1,6 @@
-#!/bin/bash
-FILE="/vip/lists/stations"
-FILE2="/vip/lists/stations_url"
-cat "$FILE2" | while read line ; do
-	echo -e "$line - $(webtitle "$line")"
-done
+#!/bin/dash
+FILE="$HOME/.vip/lists/personal/stations_url"
+while read -r line ; do
+	echo "$line - $(webtitle "$line")"
+done < "$FILE"
 
