@@ -6,7 +6,7 @@ while [ -z "$FILE" ]; do read -r -p 'FILE: ' FILE ; done
 CROP="$(ffmpeg -i "$FILE" -vframes 10 -vf cropdetect -f null - 2>&1 | grep "crop=" | sed 1q | awk -F "crop=" '{printf $2}')"
 while [ -z "$CROP" ]; do read -r -p 'crop=' CROP ; done
 echo "crop=$CROP"
-ffplay -hide_banner -loglevel panic -vf crop="$CROP" "$FILE" 2>/dev/null
+ffplay -hide_banner -loglevel quiet -vf crop="$CROP" "$FILE" >/dev/null 2>/dev/null
 
 read -r -p "Convert? [y/N] " response
 case "$response" in
