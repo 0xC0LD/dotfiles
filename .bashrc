@@ -59,6 +59,9 @@ alias \
 	tree="tree -C" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
+	ffmpeg="ffmpeg -hide_banner" \
+	ffprobe="ffprobe -hide_banner" \
+	ffplay="ffplay -hide_banner" \
 
 # checkers
 alias \
@@ -96,7 +99,7 @@ alias \
 # web
 alias \
 	wtr="curl wttr.in" \
-	exip="curl -s ifconfig.me" \
+	exip="echo -e \$(curl -s ifconfig.me)" \
 	4chan-dl="wget -nd -r -l 1 -H -D is2.4chan.org -A png,gif,jpg,jpeg,webm" \
 	yt="youtube-dl -i --add-metadata -o '%(title)s.%(ext)s'" \
 	yta="youtube-dl -i --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'" \
