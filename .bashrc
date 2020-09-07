@@ -9,6 +9,9 @@ PS1='[\u@\h \W]\$ '
 # SET PS1 WITH COLOR
 export PS1="\[$(tput bold)\]\[$(tput setaf 3)\][\[$([ "$EUID" -eq 0 ] && tput setaf 1 || tput setaf 2)\]\u\[$(tput setaf 10)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 3)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
+# set bash binds
+bind "set completion-ignore-case on"
+
 # ===[ alias ] ===
 # shortcut
 alias \
@@ -45,11 +48,13 @@ alias \
 	sc="shellcheck" \
 	ns="netstat -antp" \
 	utc="date +%s" \
+	dust="du -h | sort -h" \
+	dust2="du -h -d 1 | sort -h" \
 
 # color
 alias \
-	ls="ls --color=auto --group-directories-first -hN" \
-	la="ls --color=auto --group-directories-first -lah" \
+	ls="exa --color=auto --group-directories-first -h" \
+	la="exa --color=auto --group-directories-first -lah" \
 	grep="grep --color=auto" \
 	pacman="pacman --color=auto" \
 	pac="sudo pacman --color=auto" \
