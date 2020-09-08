@@ -1,6 +1,6 @@
 syntax on
 set number
-colorscheme slate
+colorscheme elflord
 if !(&filetype == "txt")
   set list                " show special characters
   set listchars=tab:→\ ,trail:·,nbsp:·
