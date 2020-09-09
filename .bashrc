@@ -21,13 +21,14 @@ alias \
 	l="clear" \
 	b="cd .." \
 	cls="clear" \
-	uwu="sudo" \
-	owo="sudo" \
-	pwease="sudo" \
-	please="sudo" \
-	fuck='sudo $(history -p \!\!)' \
-	pls="sudo" \
-	plz="sudo" \
+	s="sudo" \
+	uwu="s" \
+	owo="s" \
+	pwease="s" \
+	please="s" \
+	fuck='s $(history -p \!\!)' \
+	pls="s" \
+	plz="s" \
 	psa="ps aux" \
 	psf="pgrep -af" \
 	ka="killall" \
@@ -50,17 +51,21 @@ alias \
 	utc="date +%s" \
 	dust="du -h | sort -h" \
 	dust2="du -h -d 1 | sort -h" \
+	nf="neofetch" \
 
-# color
+# look
 alias \
-	ls="exa --color=auto --group-directories-first -h" \
-	la="exa --color=auto --group-directories-first -lah" \
+	ls="exa --color=auto --group-directories-first" \
+	la="ls -la" \
+	laa="ls -abghHliS" \
 	grep="grep --color=auto" \
-	pacman="pacman --color=auto" \
-	pac="sudo pacman --color=auto" \
-	paci="sudo pacman --color=auto -S" \
-	pacs="sudo pacman --color=auto -Ss" \
-	updatedb="sudo updatedb" \
+	pacman="s pacman --color=auto" \
+	pac="pacman" \
+	paci="pacman -S" \
+	pacs="pacman -Ss" \
+	pacr="pacman -Rns" \
+	pacq="pacman -Qs" \
+	updatedb="s updatedb" \
 	tree="tree -C" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
@@ -81,8 +86,7 @@ alias \
 	clc="history -p !! | tr -d '\n' | xclip -selection clipboard" \
 	clcn="history -p !! | xclip -selection clipboard" \
 	cmaim="maim -s -u | xclip -selection clipboard -t image/png -i" \
-	xc="compton -b --config /home/user/.config/compton/config" \
-	mus="cd /media/HDD/Stuff/media/mp3/Music" \
+	xc="compton -b --config \"$HOME/.config/compton/config\"" \
 	dump="mkdir dump ; cd dump" \
 	fbg="feh --bg-fill ~/.wallpaper" \
 	open="dolphin --select" \
@@ -96,7 +100,7 @@ alias \
 
 # update
 alias \
-	update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
+	update-grub="s grub-mkconfig -o /boot/grub/grub.cfg" \
 	kbmap="setxkbmap -model pc105 -layout us,rs,rs -variant ",,latin" -option """ \
 	loadbash="PS4='+ $BASH_SOURCE:$LINENO:' bash -xic ''" \
 	xu="xrdb ~/.Xresources" \
@@ -111,14 +115,17 @@ alias \
 
 # CD shortcuts
 alias \
-	bin="cd /home/user/.vip/scripts" \
-	vip="cd /home/user/.vip/" \
-	dx="cd /home/user/Desktop" \
-	cddx="cd /home/user/Desktop" \
-	cddl="cd /home/user/Downloads" \
-	cdpic="cd /home/user/Pictures" \
-	cddoc="cd /home/user/Documents" \
-	cdmus="cd /home/user/Music" \
-	cdvid="cd /home/user/Videos" \
-
+	bin="cd \"$HOME/.vip/scripts\"" \
+	vip="cd \"$HOME/.vip/\"" \
+	dx="cd \"$HOME/Desktop\"" \
+	cddx="cd \"$HOME/Desktop\"" \
+	cddl="cd \"$HOME/Downloads\"" \
+	cdpic="cd \"$HOME/Pictures\"" \
+	cddoc="cd \"$HOME/Documents\"" \
+	cdmus="cd \"$HOME/Music\"" \
+	cdvid="cd \"$HOME/Videos\"" \
+	mus="cd /media/HDD/Stuff/media/mp3/Music" \
+	p2="source \"$HOME/.vip/pyenv/p2env/bin/activate\"" \
+	p3="source \"$HOME/.vip/pyenv/p3env/bin/activate\"" \
+	pt="which python ; python --version ; which pip ; pip --version" \
 
