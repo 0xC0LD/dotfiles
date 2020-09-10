@@ -42,7 +42,7 @@ alias \
 	his="history" \
 	clip="xclip -selection clipboard" \
 	v="nvim" \
-	vim="nvim" \
+	vim="v" \
 	lsf="ls -p | grep -v /" \
 	r="ranger" \
 	ungz="tar -zxvf" \
@@ -59,12 +59,14 @@ alias \
 	la="ls -la" \
 	laa="ls -abghHliS" \
 	grep="grep --color=auto" \
-	pacman="s pacman --color=auto" \
-	pac="pacman" \
-	paci="pacman -S" \
-	pacs="pacman -Ss" \
-	pacr="pacman -Rns" \
-	pacq="pacman -Qs" \
+	p="s pacman --color=auto" \
+	pac="p" \
+	pacman="p" \
+	paci="p -S" \
+	pacs="p -Ss" \
+	pacr="p -Rns" \
+	pacq="p -Qs" \
+	pacu="p -Syuu" \
 	updatedb="s updatedb" \
 	tree="tree -C" \
 	diff="diff --color=auto" \
@@ -93,10 +95,10 @@ alias \
 
 # edit
 alias \
-	edbashrc="nvim ~/.bashrc" \
-	edi3="nvim ~/.config/i3/config" \
-	edi3blocks="nvim ~/.config/i3/i3blocks.conf" \
-	edres="nvim ~/.Xresources" \
+	edbashrc="v ~/.bashrc" \
+	edi3="v ~/.config/i3/config" \
+	edi3blocks="v ~/.config/i3/i3blocks.conf" \
+	edres="v ~/.Xresources" \
 
 # update
 alias \
@@ -112,6 +114,8 @@ alias \
 	4chan-dl="wget -nd -r -l 1 -H -D is2.4chan.org -A png,gif,jpg,jpeg,webm" \
 	yt="youtube-dl -i --add-metadata -o '%(title)s.%(ext)s'" \
 	yta="youtube-dl -i --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'" \
+	corona="curl https://corona-stats.online" \
+	coronars="curl https://corona-stats.online/serbia" \
 
 # CD shortcuts
 alias \
