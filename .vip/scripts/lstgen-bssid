@@ -2,8 +2,8 @@
 NAME="$1"
 COUNT="$2"
 CMD="$3"
-while [ -z "$NAME"  ]; do read -r -p "NAME: " NAME; done
-while [ -z "$COUNT" ]; do read -r -p "COUNT: " COUNT; done
+while [ -z "$NAME"  ]; do read -r -p "NAME..: " NAME  ; done
+while [ -z "$COUNT" ]; do read -r -p "COUNT.: " COUNT ; done
 if [ -z "$CMD" ]; then CMD="randmac" ; fi
 for (( c = 1; c <= COUNT; c++ )); do
 	echo -e "$($CMD) $NAME-$RANDOM"

