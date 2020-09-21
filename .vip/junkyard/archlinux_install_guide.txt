@@ -1,2 +1,4 @@
 # check for working internet
 ping google.com
+
+# working on this...
