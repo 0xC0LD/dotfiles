@@ -1,0 +1,2 @@
+# check for working internet
+ping google.com
