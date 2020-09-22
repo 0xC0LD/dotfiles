@@ -1,0 +1,10 @@
+burpsuite
+cli-visualizer
+crunch
+gconf
+netdiscover
+python-nmap
+spotify
+urxvt-resize-font-git
+cozette-otb
+findimagedupes

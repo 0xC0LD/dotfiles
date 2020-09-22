@@ -116,6 +116,7 @@ alias \
 	yta="youtube-dl -i --extract-audio --audio-format mp3 -f bestaudio/best -o '%(title)s.%(ext)s'" \
 	corona="curl https://corona-stats.online" \
 	coronars="curl https://corona-stats.online/serbia" \
+	dldotfiles="git clone 'https://www.github.com/0xC0LD/dotfiles'"
 
 # CD shortcuts
 alias \
@@ -129,6 +130,7 @@ alias \
 	cdmus="cd \"$HOME/Music\"" \
 	cdvid="cd \"$HOME/Videos\"" \
 	mus="cd /media/HDD/Stuff/media/mp3/Music" \
+	cdbg="cd /media/HDD/Stuff/media/img/bg/" \
 	p2="source \"$HOME/.vip/pyenv/p2env/bin/activate\"" \
 	p3="source \"$HOME/.vip/pyenv/p3env/bin/activate\"" \
 	pt="which python ; python --version ; which pip ; pip --version" \
