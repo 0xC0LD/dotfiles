@@ -38,7 +38,7 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	gid="pgrep -x" \
-	kp="pkill -f" \
+	kp="pkill -9 -f" \
 	his="history" \
 	clip="xclip -selection clipboard" \
 	v="nvim" \
