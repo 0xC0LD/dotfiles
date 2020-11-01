@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 if [ "$1" = "mon" ]; then
 	ifconfig | grep "$(wlanDevice mon)" 2>/dev/null >/dev/null && exit

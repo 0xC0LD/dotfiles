@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 file="$(fzf --layout=reverse)"
 [ -z "$file" ] && exit
 nvim "$file"

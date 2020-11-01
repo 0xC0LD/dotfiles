@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 wlan mon
 
@@ -7,14 +7,15 @@ CHANNEL="$2"
 BSSID="$3"
 WRITE="$4"
 IFACE="$(wlanDevice mon)"
+BSSID2="$(echo "$BSSID" | tr ':' '-')"
 
-[ -n "$ESSID"   ] && [ -n "$CHANNEL" ] && [ -n "$BSSID" ] && [ -n "$WRITE" ] && sudo airodump-ng --essid "$ESSID" --channel "$CHANNEL" --bssid "$BSSID" -w "[$ESSID,$CHANNEL,$BSSID]" "$IFACE" && exit
-[ -n "$ESSID"   ] && [ -n "$CHANNEL" ] && [ -n "$BSSID" ] &&                    sudo airodump-ng --essid "$ESSID" --channel "$CHANNEL" --bssid "$BSSID"                               "$IFACE" && exit
-[ -n "$ESSID"   ] && [ -n "$CHANNEL" ] &&                                       sudo airodump-ng --essid "$ESSID" --channel "$CHANNEL"                                                "$IFACE" && exit
-[ -n "$CHANNEL" ] && [ -n "$BSSID" ] &&                                         sudo airodump-ng                  --channel "$CHANNEL" --bssid "$BSSID"                               "$IFACE" && exit
-[ -n "$ESSID"   ] && [ -n "$BSSID" ] &&                                         sudo airodump-ng --essid "$ESSID"                      --bssid "$BSSID"                               "$IFACE" && exit
-[ -n "$ESSID"   ] &&                                                            sudo airodump-ng --essid "$ESSID"                                                                     "$IFACE" && exit
-[ -n "$CHANNEL" ] &&                                                            sudo airodump-ng                  --channel "$CHANNEL"                                                "$IFACE" && exit
-[ -n "$BSSID"   ] &&                                                            sudo airodump-ng                                       --bssid "$BSSID"                               "$IFACE" && exit
+[ -n "$ESSID"   ] && [ -n "$CHANNEL" ] && [ -n "$BSSID" ] && [ -n "$WRITE" ] && sudo airodump-ng --essid "$ESSID" --channel "$CHANNEL" --bssid "$BSSID" -w "[$ESSID,$CHANNEL,$BSSID2]" "$IFACE" && exit
+[ -n "$ESSID"   ] && [ -n "$CHANNEL" ] && [ -n "$BSSID" ] &&                    sudo airodump-ng --essid "$ESSID" --channel "$CHANNEL" --bssid "$BSSID"                                "$IFACE" && exit
+[ -n "$ESSID"   ] && [ -n "$CHANNEL" ] &&                                       sudo airodump-ng --essid "$ESSID" --channel "$CHANNEL"                                                 "$IFACE" && exit
+[ -n "$CHANNEL" ] && [ -n "$BSSID" ] &&                                         sudo airodump-ng                  --channel "$CHANNEL" --bssid "$BSSID"                                "$IFACE" && exit
+[ -n "$ESSID"   ] && [ -n "$BSSID" ] &&                                         sudo airodump-ng --essid "$ESSID"                      --bssid "$BSSID"                                "$IFACE" && exit
+[ -n "$ESSID"   ] &&                                                            sudo airodump-ng --essid "$ESSID"                                                                      "$IFACE" && exit
+[ -n "$CHANNEL" ] &&                                                            sudo airodump-ng                  --channel "$CHANNEL"                                                 "$IFACE" && exit
+[ -n "$BSSID"   ] &&                                                            sudo airodump-ng                                       --bssid "$BSSID"                                "$IFACE" && exit
 
 sudo airodump-ng "$IFACE"

@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/bash
 MSG="$1"
 WEBHOOK_URL="$2"
 while [ -z "$MSG"         ]; do read -r -p "MSG: " MSG         ; done

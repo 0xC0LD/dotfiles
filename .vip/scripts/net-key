@@ -1,15 +1,15 @@
-#!/bin/dash
+#!/bin/sh
 
 FILE="$1"
 SSID="$2"
 PASS="$3"
 
-while [ -z "$FILE" ]; do read -r -p 'FILE: ' FILE ; done
-while [ -z "$SSID" ]; do read -r -p 'SSID: ' SSID ; done
-while [ -z "$PASS" ]; do read -r -p 'PASS: ' PASS ; done
+while [ -z "$FILE" ]; do read -r -p '.cap file path: ' FILE ; done
+while [ -z "$SSID" ]; do read -r -p 'bssid or essid.: ' SSID ; done
+while [ -z "$PASS" ]; do read -r -p 'password: ' PASS ; done
 
-if echo "$SSID" | grep ":" > /dev/null 2>/dev/null; then
-	echo "$3" | aircrack-ng "$FILE" -b "$SSID" -w -
+if [[ "$SSID" =~ ^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})|([0-9a-fA-F]{4}\\.[0-9a-fA-F]{4}\\.[0-9a-fA-F]{4})$ ]]; then
+	echo "$PASS" | aircrack-ng "$FILE" -b "$SSID" -w -
 else
-	echo "$3" | aircrack-ng "$FILE" -e "$SSID" -w -
+	echo "$PASS" | aircrack-ng "$FILE" -e "$SSID" -w -
 fi

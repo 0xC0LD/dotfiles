@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 ESSID="$1"
 PASSWORD="$2"
 while [ -z "$ESSID"    ]; do read -r -p 'ESSID: '    ESSID    ; done
