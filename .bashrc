@@ -26,6 +26,7 @@ alias \
 	owo="s" \
 	pwease="s" \
 	please="s" \
+	:q="echo 'This is not vim ye daft idiot!' && sleep 2 && exit" \
 	fuck='s $(history -p \!\!)' \
 	pls="s" \
 	plz="s" \
